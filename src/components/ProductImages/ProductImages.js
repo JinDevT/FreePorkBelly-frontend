@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import "./ProductImages.scss";
 
+/*베스트상품 밑에 있는 상품 리스트 컴포넌트입니다. 다른곳에 붙이실때 부모 컴포넌트에 Main.scss에 있는 
+.prodcutImagesContainer와 같이 wrap을 주시고 width를 설정하시면 넘치는 컴포넌트는 밑으로 내려옵니다 */
+
 class ProductImages extends Component {
   render() {
     return (

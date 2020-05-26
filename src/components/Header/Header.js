@@ -15,11 +15,11 @@ class Header extends Component {
           </div>
           <div className="navContainer">
             <div className="loginBar">
-              <div>이벤트</div>
-              <div>공지사항</div>
-              <div>이용가이드</div>
-              <div>로그인</div>
-              <div>회원가입</div>
+              <span>이벤트</span>
+              <span>공지사항</span>
+              <span>이용가이드</span>
+              <span>로그인</span>
+              <span>회원가입</span>
             </div>
             <nav className="navigation">
               <div className="navList">
