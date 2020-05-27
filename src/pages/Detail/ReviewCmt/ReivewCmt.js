@@ -11,16 +11,17 @@ class ReviewCmt extends Component {
     }
 
     // open modal
-    openModal = (e) => {
-        console.log("click")
-        this.setState({
+    openModal = () => {
+        this.setState({ 
             isModalShow: true
         })
     }
 
     // close modal
     closeModal = () => {
-        this.setState({ isModalShow: false})
+        this.setState({ 
+            isModalShow: false
+        })
     }
 
     render() {

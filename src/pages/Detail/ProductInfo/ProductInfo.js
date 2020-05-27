@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './ProductInfo.scss';
 import TodayTable from './Table/TodayTable';
 import TomorrowTable from './Table/TomorrowTable';
+import './ProductInfo.scss';
 class ProductInfo extends Component {
     render() {
         return (

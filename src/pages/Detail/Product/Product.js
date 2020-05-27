@@ -27,7 +27,7 @@ class Product extends Component {
     }
 
     // 수량감소 버튼
-    handleDecrease = (e) => {
+    handleDecrease = () => {
         const { number } = this.state;
         if(number === 1) {
             return;
@@ -39,10 +39,8 @@ class Product extends Component {
     }
 
     // 수량증가 버튼
-    handleIncrease = (e) => {
+    handleIncrease = () => {
         const { number } = this.state;
-        e.preventDefault();
-
         this.setState({
             number: number + 1
         })
@@ -51,21 +49,13 @@ class Product extends Component {
     // option open button
     openOption = () => {
         const { selectOption } = this.state;
-        
-        if(selectOption) {
-            this.setState({
-                selectOption: false
-            })
-        } else {
-            this.setState({
-                selectOption: true
-            })
-        }
+        this.setState({
+            selectOption: !selectOption
+        })
     }
 
     // option value change
     handleOption = value =>{
-        console.log(value);
         this.setState({
             optionValue: value
         }, () => this.openOption())
