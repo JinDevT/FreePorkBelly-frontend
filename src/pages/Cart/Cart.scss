@@ -1,1 +1,23 @@
-// component scss
+@import "../../styles/common.scss";
+
+.Cart {
+    height: 100%;
+    .container {
+        max-width: 1180px;
+        margin: 100px auto 80px;
+        .pageTitle {
+            text-align: center;
+            h1{
+                font-size: 32px;
+                font-weight: 400;
+                line-height: 1.4;
+            }
+        }
+        .inner {
+            display: flex;
+            align-content: center;
+            justify-content: space-between;
+            margin: 50px 0;
+        }
+    }
+}
