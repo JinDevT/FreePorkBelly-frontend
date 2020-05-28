@@ -1,0 +1,98 @@
+@import "../../../styles/common.scss";
+
+.CartRight {
+    width: 280px;
+    background: #f8f8f8;
+    border-top: 1px solid $black;
+    .rightInner {
+        padding: 35px 30px;
+        .priceBox {
+            margin-bottom: 14px;
+            span {
+                font-size: 15px;
+                line-height: 1.4;
+            }
+        }
+        .deliverBox {
+            padding: 14px 0 10px;
+            border-top: 1px solid $grey;
+            border-bottom: 1px solid $grey;
+            span {
+                font-size: 15px;
+                line-height: 1.4;
+            }
+        }
+        .resultBox {
+            margin: 6px 0 23px;
+            span {
+                font-size: 13px;
+            }
+        }
+        .buttonBox {
+            width: 100%;
+            .btnWrap {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 50px;
+                margin: 10px 0;
+                button {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 4px;
+                    font-size: $font14;
+                    font-family: 700;
+                    color: $white;
+                    &:hover {
+                        cursor: pointer;
+                        opacity: 0.9;
+                    }
+                    &.orderBtn {
+                        background: $darkRed;
+                        border: 1px solid $darkRed;
+                    }
+                    &.shoppingBtn {
+                       background: $darkGrey;
+                       border: 1px solid $darkGrey;
+                    }
+                }
+            }
+        }
+        .rightFlex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            &.justifyBox {
+                justify-content: flex-end;
+                margin: 5px 0;
+                line-height: 1.4;
+                span {
+                    font-size: 13px;
+                }
+                span:first-child {
+                    padding-right: 20px;
+                }
+                &.basicOrder {
+                    color: #cccccc;
+                }
+                &.firstBuy {
+                    color: #4a90e2;
+                }
+                &.predictPrice {
+                    font-weight: 700;
+                }
+                &.allPrice {
+                    span {
+                        font-size: $font24;
+                        font-weight: 700;
+                        color: $darkRed;
+                    }
+                }
+            }
+            &.benefit {
+                margin-bottom: 23px;
+                color: #4a90e2;
+            }
+        }
+    }
+}
