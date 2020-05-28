@@ -6,32 +6,32 @@ import './Register.scss';
 class Register extends Component {
 
 state = {
-    agreeBtn: false,
-    stage: 1,
+    stage: true,
 };
 
-handleChange = () => {
+handleChange1 = () => {
     this.setState({
-        agreeBtn: true
-    }, () => alert('change')
-    );
+        stage: false
+    });
 }
 
+handleChange2 = () => {
+    this.setState({
+        stage: true
+    });
+}
 
     render() {
-        
-        return (
-            <Fragment>
-            <AgreeTerms/>
-        
-            <div>
-                {this.state.stage === 1 ? "a" : "b"}
-            </div>
-            </Fragment>
-            
+        const { stage } = this.state;
+            return (
+            <>
+                <div className="signin">회원가입</div>
+                    <div>
+                        {stage ? <AgreeTerms stageChange={this.handleChange1}/> : <InfoRegister stageChange={this.handleChange2}/>  }
+                    </div>
+            </>
         );
-    }
-    
+    }   
 }
 
 export default Register;

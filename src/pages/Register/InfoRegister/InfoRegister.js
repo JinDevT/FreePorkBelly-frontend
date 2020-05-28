@@ -5,8 +5,7 @@ import './InfoRegister.scss';
 class InfoRegister extends Component {
     render() {
         return (
-            <div className="InfoRegister"> {/* 교환할 부분 클래스 시작 */}
-                
+            <div className="InfoRegister"> {/* 교환할 부분 클래스 시작 */}                
                 <div className="topImg">
                     <img id="note" src="https://www.jeongyookgak.com/assets/icon_1.svg"></img>
                     <div id="letter3">01.약관동의</div>
@@ -80,7 +79,9 @@ class InfoRegister extends Component {
 
                 
                 <div className="bottomBtn">
-                    <button className="backBtn">
+                    <button 
+                        className="backBtn"
+                        onClick={this.props.stageChange}>
                         이전으로
                     </button>
                     <button className="agreeBtn">

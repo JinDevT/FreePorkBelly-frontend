@@ -1,19 +1,11 @@
 // component scss
 @import "../../../styles/common.scss";
 
-* {
-    box-sizing: border-box;
-  }
-
   .Register {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    .signin {
-        font-size: $font28;
-        margin: 80px auto 50px auto;
-    }
     .topImg {
         display: flex;
         justify-content: space-around;
