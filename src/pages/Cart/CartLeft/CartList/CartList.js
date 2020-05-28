@@ -3,7 +3,24 @@ import { Link } from 'react-router-dom';
 import './CartList.scss'
 
 class CartList extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            num : ""
+        }
+    }
+    handleIncrease = () => {
+        const { increase } = this.props;
+        increase();
+    }
+
+    handleDecrease = () => {
+        const { decrease } = this.props;
+        decrease();
+    }
+
     render() {
+        const { number, price } = this.props;
         return (
             <>
                 <li className="CartList">
@@ -17,15 +34,15 @@ class CartList extends Component {
                         </Link>
                     </div>
                     <div className="productList productNum">
-                        <span className="standard">g 기준</span>
+                        <span className="standard">100g 기준</span>
                         <div className="numberBtn">
-                            <button typee="button">-</button>
-                            <span className="number">1</span>
-                            <button type="button">+</button>
+                            <button typee="button" onClick={this.handleDecrease}>-</button>
+                            <span className="number">{number}</span>
+                            <button type="button" onClick={this.handleIncrease}>+</button>
                         </div>
                     </div>
                     <div className="productList productPre">
-                        가격
+                       {price * number}원
                     </div>
                     <div className="productList productDel">
                         <button type="button">x</button>

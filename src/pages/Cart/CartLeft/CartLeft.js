@@ -4,6 +4,7 @@ import './CartLeft.scss';
 
 class CartLeft extends Component {
     render() {
+        const { increase, decrease, number, price } = this.props;
         return (
             <div className="CartLeft">
                 <div className="leftHead">
@@ -12,8 +13,12 @@ class CartLeft extends Component {
                     <span className="productPrice">가격</span>
                 </div>
                 <ul className="leftBody">
-                    <CartList />
-                    <CartList />
+                    <CartList 
+                        increase={increase} 
+                        decrease={decrease}
+                        number={number}
+                        price={price}
+                    />
                 </ul>
             </div>
         );
