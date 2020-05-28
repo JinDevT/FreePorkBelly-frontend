@@ -25,7 +25,7 @@ handleChange2 = () => {
         const { stage } = this.state;
             return (
             <>
-                {/* <div className="signin">회원가입</div> */}
+                <div className="signin">회원가입</div>
                     <div>
                         {stage ? <AgreeTerms stageChange={this.handleChange1}/> : <InfoRegister stageChange={this.handleChange2}/>  }
                     </div>
