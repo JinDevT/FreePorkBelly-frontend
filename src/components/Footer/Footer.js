@@ -21,7 +21,7 @@ class Footer extends Component {
                         <img ClassName="logo" src="https://www.jeongyookgak.com/assets/footer_logo.svg"></img>
                     </div>
                     <div className="companyInfo">
-                        <p>(주)정육각 &nbsp;&nbsp;대표이사:김재연 &nbsp;&nbsp;주소:경기도 성남시 중원구 순환로212, 1층</p>
+                        <span className="first">(주)정육각</span> <span className="second">대표이사:김재연</span> <span className="third">주소:경기도 성남시 중원구 순환로212, 1층</span>
                         <p>사업자등록번호:224-87-00271 [조회]통신판매업신고번호:2018-성남중원-0191</p>
                         <p>개인정보관리책임자:박준태 privacy@yookgak.com</p>
                         <p>Copyright 2017 정육각 공식 홈페이지</p>
