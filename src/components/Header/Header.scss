@@ -35,6 +35,10 @@
       justify-content: flex-end;
       align-items: center;
       height: 40%;
+      .link {
+        font-size: 14px;
+        color: #737373;
+      }
       span {
         margin-left: $font28;
         cursor: pointer;

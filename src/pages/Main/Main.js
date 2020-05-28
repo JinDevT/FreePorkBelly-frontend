@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Main.scss";
 import Header from "../../components/Header/Header";
 import ProductImages from "../../components/ProductImages/ProductImages";
+import Footer from "../../components/Footer/Footer"
 
 class Main extends Component {
   render() {
@@ -51,7 +52,8 @@ class Main extends Component {
             <ProductImages />
           </div>
         </main>
-      </div>
+        <Footer/>
+        </div>
     );
   }
 }

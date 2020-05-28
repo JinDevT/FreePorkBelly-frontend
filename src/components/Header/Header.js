@@ -1,5 +1,9 @@
 import React, { Component } from "react";
+import { Route, Link } from 'react-router-dom';
 import "./Header.scss";
+
+
+
 
 class Header extends Component {
   render() {
@@ -18,8 +22,8 @@ class Header extends Component {
               <span>이벤트</span>
               <span>공지사항</span>
               <span>이용가이드</span>
-              <span>로그인</span>
-              <span>회원가입</span>
+              <span><Link className="link" to="/login">로그인</Link></span>
+              <span><Link className="link" to="/register">회원가입</Link></span>
             </div>
             <nav className="navigation">
               <div className="navList">
