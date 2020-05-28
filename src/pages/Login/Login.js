@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './Login.scss';
 
 class Login extends Component {
@@ -25,10 +26,10 @@ class Login extends Component {
         console.log(this.state.loginById);
         console.log(this.state.loginByPw);
 
-        fetch("http://10.58.7.154:8000/accounts/signin", {
+        fetch("http://10.58.0.24:8000/customer/singin", {
             method: "POST",
             body: JSON.stringify({
-                'ID' : this.state.loginById,
+                'email' : this.state.loginById,
                 'password' : this.state.loginByPw,
             }),
         })
@@ -37,7 +38,7 @@ class Login extends Component {
             if (response.token) {
                 console.log(response);
                 localStorage.setItem("wtw-token", response.token);
-                this.props.history.push("/register");
+                this.props.history.push("/index");
             } else if (!response.token) {
                 alert("로그인 오류");
             }
@@ -79,7 +80,7 @@ class Login extends Component {
                 </div>
                 <div className="middle">
                     <div className="search">아이디/비밀번호 찾기</div>
-                    <div className="register">회원가입</div>
+                    <div className="register"><Link to="/register">회원가입</Link></div>
                 </div>
                 <div className="bottom">
                     <div className="social">소셜계정으로 간편하게 로그인 해보세요.</div>
