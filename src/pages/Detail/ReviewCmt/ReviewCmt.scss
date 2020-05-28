@@ -1,0 +1,79 @@
+@import "../../../styles/common.scss";
+
+.ReviewCmt {
+    max-width: 1055px;
+    margin: 0 auto;
+    .contents {
+        &:hover {
+            cursor: pointer;
+            border: 1px solid $black;
+        }
+        margin: 20px 0 30px;
+        border: 1px solid $grey;
+        .inner {
+            position: relative;
+            padding: 20px;
+            .contentTit {
+                margin: 10px 0;
+                font-size: $font18;
+                font-weight: 700;
+            }
+            .contentSubT {
+                height: 150px;
+                margin: 10px 0;
+                padding: 20px;
+                background-color: #dee2e6;
+                span {
+                    font-size: $font16;
+                    line-height: 1.4;
+                }
+            }
+            .contentUser {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 10px 0;
+                font-size: $font16;
+                .userInfo {
+                    font-weight: 700;
+                    span {
+                        padding: 0 10px;
+                        &:first-child {
+                            padding-left: 0;
+                        }
+                    }
+                    .userId {
+                        color: #9b9b9b;
+                    }
+                    .buyNum {
+                        color: #4a90e2;
+                    }
+                }
+                .userDate {
+                    font-weight: 700;
+                    .buyDate {
+                        color: #9b9b9b;
+                    }
+                }
+            }
+        }
+        .togetherInfo {
+            display: flex;
+            align-items: center;
+            line-height: 49px;
+            border-top: 1px solid $grey;
+            .togetherTit {
+                padding: 0 20px;
+                border-right: 1px solid $grey;
+            }
+            .togetherName {
+                padding: 0 20px;
+            }
+            span {
+                font-size: 14px;
+                font-weight: 700;;
+                color: #9b9b9b;
+            }
+        }
+    }
+}

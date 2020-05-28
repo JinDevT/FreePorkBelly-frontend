@@ -1,0 +1,35 @@
+@import "../../../styles/common.scss";
+
+.tabTitBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 135px;
+    line-height: 1.4;
+    background: none;
+    border: none;
+    outline: none;
+    .tabTit {
+            padding: 0 30px;
+            font-size: $font18;
+            font-weight: 700;
+            cursor: pointer;
+            &:hover {
+                color: $black;
+            }
+            &.active {
+                color: $black;
+            }
+            &.primary {
+                color: $darkGrey;
+            }
+           
+        }
+    
+}

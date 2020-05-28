@@ -1,0 +1,117 @@
+@import "../../../styles/common.scss";
+
+.Modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .modal {
+        position: relative;
+        width: 412px;
+        padding: 15px 20px;
+        background: white;
+        border-right: 4px;
+        .contentUser {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px 0;
+            border-bottom: 1px solid $black;
+            line-height: 1.4;
+            font-size: $font16;
+            .userInfo {
+                font-weight: 700;
+                span {
+                    padding: 0 10px;
+                    &:first-child {
+                        padding-left: 0;
+                    }
+                }
+                .userId {
+                    color: #9b9b9b;
+                }
+                .buyNum {
+                    color: #4a90e2;
+                }
+            }
+            .userDate {
+                font-weight: 700;
+                .buyDate {
+                    color: #9b9b9b;
+                }
+            }
+        }
+        .modalTit {
+            margin: 10px 0;
+            font-size: 15px;
+            font-weight: 700;
+        }
+        .modalSubTit {
+            min-height: 320px;
+            margin: 10px 0;
+            padding: 15px 7px;
+            background: #dee2e6;
+            .modalContent {
+                font-size: $font12;
+            }
+            .togetherInfo {
+                margin: 10px 0;
+                background: $white;
+                .togetherTit {
+                    padding: 7px;
+                    background: $grey;
+                    span {
+                        font-size: $font12;
+                        color: $white;
+                        font-weight: 400;
+                    }
+                }
+                .togetherList {
+                    padding: 10px;
+                    .ListTit {
+                        line-height: 1.4;
+                        span {
+                            font-size: $font12;
+                            font-weight: 700;
+                            color: #616161;
+                        }
+                    }
+                    .ListOptions {
+                        line-height: 1.4;
+                        margin: 3px 0;
+                        li {
+                            margin: 2px 0;
+                            font-size: $font12;
+                            color: #616161;
+                        }
+                    }
+                }
+            }
+        }
+        .modalClose {
+            position: absolute;
+            top: -19px;
+            right: -20px;
+            width: 40px;
+            height: 40px;
+            button {
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                background: $black;
+                color: $white;
+                border-radius: 50%;
+                border: 1px solid $black;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
