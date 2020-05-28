@@ -1,1 +1,41 @@
-// component scss
+@import "../../styles/common.scss";
+
+.Detail {
+    height: 100%;
+    .header {
+        height: 128px;
+        width: 100%;
+        border: 1px solid $black;
+    }
+    .container {
+        position: relative;
+        background-color: $paleBlack;
+        .cont1 {
+            max-width: 1055px;
+            margin: 0 auto;
+            padding: 60px 0;
+            .compareBox {
+                p{
+                    font-size: $font16;
+                    color: $darkGrey;
+                    line-height: 1.4;
+                }
+                .compareInfo {
+                    margin-top: 8px;
+                    width: 100%;
+                    height: 180px;
+                    background: $tenderBlack;
+                }
+            }
+        }
+        .contBox {
+            background-color: $white;
+        }
+        .cont2 {
+            .listBox {
+                position: relative;
+                height: 130px;
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+@import "../../../../styles/common.scss";
+
+.Table {
+    display: table;
+    width: 100%;
+    border: 1px solid;
+    .tableRow {
+        display: table-row;
+        text-align: center;
+        
+        &.firstRow {
+            background: $black;
+            .tableCell {
+                border-right: 1px solid $white;
+                p {
+                    line-height: 1.4;
+                    font-size: $font28;
+                    font-weight: 700;
+                    color: $white;
+                }
+            }
+            
+        }
+        .tableCell {
+            display: table-cell;
+           
+            padding: 20px 0;
+            border-bottom: 1px solid;
+            border-right: 1px solid;
+            &.rightCell {
+                border-right: none;
+                border-bottom: 1px solid;
+                p {
+                    font-weight: 400;
+                }
+            }
+            p {
+                line-height: 1.4;
+                font-size: 20px;
+                font-weight: 700;
+                color: $black;
+            }
+        }
+        &.lastRow {
+            .tableCell {
+                border-bottom: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,45 @@
+@import "../../../styles/common.scss";
+
+.Explicate {
+    border-top: 1px solid #000;
+    .dateBox {
+        margin-top: 30px;
+        text-align: center;
+        line-height: 1.4;
+        .dateTit {
+            margin: 5px 0 30px;
+            p {
+                font-size: $font46;
+                font-weight: 700;
+            }
+        }
+        .dateSubTit {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 144px;
+            background-color: $tenderBlack;
+            .SubTit {
+                display: flex;
+                align-items: center;
+                .dateNum {
+                    width: 80px;
+                    height: 100px;
+                    margin: 0 3px;
+                    background-color: $white;
+                    border: 1px solid $white;
+                    border-radius: 4px;
+                    font-size: $font72;
+                    font-weight: 700;
+                }
+                .dateString {
+                    margin: 0 3px;
+                    font-size: $font46;
+                    font-weight: 700;
+                    color: $white;
+                }
+            }
+            
+        }
+    }
+}

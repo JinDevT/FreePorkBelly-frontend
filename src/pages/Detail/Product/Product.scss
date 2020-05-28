@@ -1,0 +1,167 @@
+@import "../../../styles/common.scss";
+
+.Product {
+    .productBox {
+        display: flex;
+        justify-content: space-around;
+        align-content: center;
+        .productImg {
+            width: 500px;
+            height: 500px;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .productInfo {
+           margin-top: 30px;
+           color: $white;
+           .infoTop {
+               line-height: 1.4;
+               padding: 15px 0;
+               border-bottom: 1px solid $darkGrey;
+               .topTit {
+                   font-size: $font28;
+                   font-weight: 700;
+               }
+               .topSubTit {
+                    font-size: $font16;
+                    color: $darkGrey;
+               }
+               .topPrice {
+                font-size: $font24;
+               }
+               p {
+                margin: 10px 0;
+               }
+           }
+           .infoCenter {
+               line-height: 1.4;
+               padding: 20px 0;
+               .productNum {
+                   display: flex;
+                   justify-content: center;
+                   align-items: center;
+                   height: 50px;
+                   .centerTit {
+                       display: flex;
+                       align-items: center;
+                       height: 100%;
+                       font-size: $font18;
+                   }
+                   .centerBtn {
+                       display: flex;
+                       justify-content: center;
+                       align-items: center;
+                       flex: 1 1;
+                       height: 100%;
+                       margin-left: 20px;
+                       border: 1px solid $white;
+                       button {
+                            height: 100%;
+                            width: 49px;
+                            background: none;
+                            border: none;
+                            color: $white;
+                            font-size: $font16;
+                            outline: none;
+                            &:hover {
+                                cursor: pointer;
+                            }
+                       }
+                       .number {
+                            display: flex;
+                            height: 100%;
+                            width: 218px;
+                            justify-content: center;
+                            align-items: center;
+                            border-left: 1px solid #fff;
+                            border-right: 1px solid #fff;
+                       }
+                   }
+               }
+               .productSelect {
+                   position: relative;
+                   margin: 20px 0;
+                   .selectBox {
+                       position: relative;
+                       background: none;
+                       cursor: pointer;
+                       &:hover {
+                           background-color: $white;
+                           color: $black;
+                       }
+                   }
+                   .seletItems {
+                       position: absolute;
+                       top: 100%;
+                       left: 53.5px;
+                       right: 0;
+                       z-index: 99;
+                       border: 1px solid $white;
+                       border-top: none;
+                       background-color: $black;
+                       &.selectHide {
+                            display: none;
+                       }
+                       &.selectActive {
+                            display: block;
+                       }
+                       .itemOption {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 50px;
+                            background-color: $paleBlack;
+                            cursor: pointer;
+                            &:hover {
+                                background-color: $white;
+                                color: $black;
+                            }
+                       }
+                   }
+               }
+           } 
+           .infoBottom {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .bottomBtn {
+                    width: 180px;
+                    height: 60px;
+                    button {
+                        width: 100%;
+                        height: 100%;
+                        border: none;
+                        line-height: 1.4;
+                        &.buyBtn {
+                            background: $darkGrey;
+                        }
+                        &.cartBtn {
+                            background: $darkRed;
+                        }
+                        span {
+                            color: $white;
+                            font-size: $font16;
+                            font-weight: 700;
+                            letter-spacing: 1px;
+                        }
+                    }
+                }
+           }
+        }
+    }
+    .compareBox {
+        p{
+            font-size: $font16;
+            color: $darkGrey;
+            line-height: 1.4;
+        }
+        .compareInfo {
+            margin-top: 8px;
+            width: 100%;
+            height: 180px;
+            background: $tenderBlack;
+        }
+    }
+}
