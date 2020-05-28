@@ -6,8 +6,7 @@ class AgreeTerms extends Component {
 
     render() {
         return (
-            <div className="Register">
-                <div className="signin">회원가입</div>
+            <div className="Register">                
                 <div className="TermsCondition"> {/* 교환할 부분 클래스 시작 */}
                     <div className="topImg">
                         <img id="note" src="https://www.jeongyookgak.com/assets/icon_3.svg"></img>
