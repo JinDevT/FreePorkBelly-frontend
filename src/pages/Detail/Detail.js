@@ -6,8 +6,8 @@ import Tab from './Tab/Tab';
 import Explicate from './Explicate/Explicate';
 import ReviewCmt from './ReviewCmt/ReivewCmt';
 import ProductInfo from './ProductInfo/ProductInfo';
+import Footer from '../../components/Footer/Footer';
 import './Detail.scss';
-
 class Detail extends Component {
     constructor(props) {
         super(props);
@@ -43,6 +43,7 @@ class Detail extends Component {
                         </TabContainer> 
                     </section>
                 </div>
+                <Footer />
             </div>
         );
     }
