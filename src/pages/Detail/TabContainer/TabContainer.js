@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../Tab/Tab.scss'
-
 class TabContainer extends Component {
     renderTab = (tab, i) => {
         const { updateIndex = () => {}} = this.props;
@@ -32,11 +31,10 @@ class TabContainer extends Component {
         return (
             <div className="TabContainer">
                 <div className="tabTitBox">{tabs}</div>
-                <div>{kid}</div>
+                <div className="tabKid">{kid}</div>
             </div>
         );
     }
-
 }
 
 export default TabContainer;
