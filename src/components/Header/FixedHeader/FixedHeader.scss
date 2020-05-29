@@ -1,0 +1,74 @@
+@import "../../../styles/common.scss";
+
+.header1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1160px;
+  height: 80px;
+  background-color:white;  
+  margin: 0 auto;
+  .logoContainer1 {
+    cursor: pointer;
+    img {
+      width: 34px;
+      height: 39px;  
+    }
+  }
+  .navContainer1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    color: black;
+    width: 900px;
+    height: 80px;    
+    .navigation1 {
+      display: flex;
+      justify-content: space-between;
+      font-size: $font18;
+      font-weight: 600;
+      height: 80px;      
+      .navList1 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 495px;        
+        div {
+          cursor: pointer;
+        }
+        div:hover {
+          border-bottom: 1px solid white;
+          padding-bottom: 5px;
+        }
+        .listLink1 {
+          color: black;
+        }
+      }
+      .imgList1 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 95px;
+        margin-left: 300px;
+     
+        // .meatCount1 {
+        //   width: 22px;
+        //   height: 22px;
+        //   border-radius: 50%;
+        //   background-color: $darkRed;
+        //   display: flex;
+        //   align-items: center;
+        //   justify-content: center;
+        //   font-size: $font12;
+        //   visibility: hidden; //로그아웃 시에는 숨겨짐.
+        // }
+        img {
+          width: 33px;
+          height: 29px;
+          color: white;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

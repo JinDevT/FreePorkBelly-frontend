@@ -7,7 +7,7 @@
     height: 60px;
     border-top: 1px solid lightgray;
     border-bottom: 1px solid lightgray;
-    
+    margin-top: 100px;
 }
 .Footer {
     display: flex;
@@ -16,17 +16,13 @@
     align-items: center;
     margin: 0, auto;
     .footerTop {
-        
         width: 1300px;
         height: 60px;
-        border-top: 1px solid green;
-        border-bottom: 1px solid green;
         display: flex;
         justify-content: space-between;        
         align-items: center;
         opacity: 0.5;
-        .leftTop {
-            
+        .leftTop {           
             width: 40%;
             margin: 0 auto;
             height: 62px;
@@ -40,8 +36,7 @@
             height: 62px;
             display: flex;
             justify-content: flex-end;
-            align-items: center;
-            
+            align-items: center;            
         }
     }
     .footerBottom {
@@ -69,8 +64,6 @@
         }
         .csCenter {
             line-height: 200%;
-            
-
             text-align: right;
             .cs {
                 font-size: $font18;
