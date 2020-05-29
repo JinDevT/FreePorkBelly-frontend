@@ -1,0 +1,113 @@
+@import "../../../styles/common.scss";
+
+.Register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .topImg {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 1180px;
+        height: 94px;
+        background-color: #f7f7f7;
+        text-align: center;
+        padding: 0 350px;
+        font-size: $font16;
+        font-weight: 700;
+        #note {
+            width: 56px;
+            height: 52px;
+        }
+        #bigger {
+            width: 18px;
+            height: 30px;
+        }
+        #pen {
+            width: 56px;
+            height: 52px;
+        }
+        #letter3 {
+            color: #d8d8d8;
+        }
+    }
+
+    .mainBody {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 35px;
+        .inputRegInfo {
+            width: 778px;
+            height: 24px;
+            font-size: $font16;
+            margin: 15px 0;
+            text-align: left;
+        }
+        .table {
+            border-bottom: 1px solid grey;    
+            .tableRow {
+                display: flex;   
+                .emailLeft, .pwLeft, .repwLeft, .nameLeft, .cpLeft, .validLeft {
+                    width: 180px;
+                    height: 74px;
+                    border: 1px solid grey;           
+                    font-size: $font14;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    padding-left: 20px;
+                    border-bottom: none;
+                }
+                .emailRight, .pwRight, .repwRight, .nameRight, .cpRight, .validRight {
+                    width: 598px;
+                    height: 74px;
+                    border: 1px solid grey;
+                    border-left: none;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    font-size: $font14;
+                    border-bottom: none;
+                    .emailValue, .pwValue, .repwValue, .nameValue, .cpValue, .validValue {
+                        width: 456px;
+                        height: 38px;
+                        margin-left: 20px;
+                        padding-left: 10px;
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .bottomBtn {
+        margin-top: 30px;
+        width: 762px;
+        margin: 30px auto 30px auto;
+        
+        
+        .backBtn {
+            width: 381px;
+            height: 60px;
+            color: white;
+            font-size: $font16;
+            font-weight: 700;
+            background-color: #888888;
+            border: none;
+            outline: none;
+        }
+        .agreeBtn {
+            width: 381px;
+            height: 60px;
+            color: white;
+            font-size: $font16;
+            font-weight: 700;
+            background-color: $black;
+            border: none;
+            outline: none;
+        }
+    }
+}
