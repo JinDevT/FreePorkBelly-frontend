@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./Main.scss";
 import Header from "../../components/Header/Header";
 import ProductImages from "../../components/ProductImages/ProductImages";
-import Footer from "../../components/Footer/Footer"
+import Footer from '../../../src/components/Footer/Footer';
+import "./Main.scss";
 
 class Main extends Component {
   render() {
@@ -53,7 +53,7 @@ class Main extends Component {
           </div>
         </main>
         <Footer/>
-        </div>
+      </div>
     );
   }
 }

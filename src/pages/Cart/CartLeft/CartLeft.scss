@@ -1,0 +1,32 @@
+@import "../../../styles/common.scss";
+
+.CartLeft {
+    width: 860px;
+    .leftHead {
+        display: flex;
+        align-items: center;
+        height: 55px;
+        border-top: 1px solid $black;
+        border-bottom: 1px solid $grey;
+        span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        .productInfo {
+            width: 40%;
+        }
+        .productNumber {
+            width: 30%;
+        }
+        .productPrice {
+            width: 25%;
+        }
+    }
+    .leftBody {
+        height: 100%;
+    }
+}
