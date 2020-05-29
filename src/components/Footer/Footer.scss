@@ -2,10 +2,13 @@
 
 @import "../../styles/common.scss";
 
-* {
-    box-sizing: border-box;
-  }
-
+.footerVeryTop {
+    width: 100%;
+    height: 60px;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    margin-top: 100px;
+}
 .Footer {
     display: flex;
     flex-direction: column;
@@ -13,32 +16,36 @@
     align-items: center;
     margin: 0, auto;
     .footerTop {
+        width: 1300px;
         height: 60px;
-        border-top: 1px solid gray;
-        border-bottom: 1px solid gray;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;        
+        align-items: center;
         opacity: 0.5;
-        .leftTop {
-            margin: 20px 280px 20px 160px;   
-            width: 500px;
+        .leftTop {           
+            width: 40%;
+            margin: 0 auto;
             height: 62px;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
+            align-items: center;
         }
         .rightTop {
-            width: 400px;
+            width: 40%;
+            margin: 0 auto;
             height: 62px;
-            margin: 20px 180px 20px 200px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;            
         }
     }
     .footerBottom {
-        width: 1430px;
+        width: 1200px;
         display: flex;
         justify-content: space-around;
         align-items: center;
         height: 112px;
-        margin-top: 50px;
+        margin: 50px auto 70px auto;
         .logo {
             width: 89px;
             height: 104px;
@@ -57,7 +64,6 @@
         }
         .csCenter {
             line-height: 200%;
-            margin-right: 100px;
             text-align: right;
             .cs {
                 font-size: $font18;
