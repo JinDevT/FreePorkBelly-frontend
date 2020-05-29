@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import Header from '../../components/Header/Header'
-// import Footer from '../../components/Footer/Footer'
 import ProductImages from "../../components/ProductImages/ProductImages";
-import './List.scss';
 import Header from "../../components/Header/Header"
 import Footer from "../../components/Footer/Footer"
+import './List.scss';
 
 class List extends Component {
     render() {
