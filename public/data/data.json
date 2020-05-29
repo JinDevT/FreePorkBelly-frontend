@@ -1,12 +1,27 @@
 {
-    "data": [
-        {
-            "name": "Jason",
-            "age": 17
-        },
-        {
-            "name": "Jason2",
-            "age": 10
-        }
-    ]
+    "desc_img_list" : [
+        "https://www.jeongyookgak.com/assets/detail1/pc/milk-fresh/milk-fresh1.png", 
+        "https://www.jeongyookgak.com/assets/detail1/pc/milk-fresh/milk-fresh2.png", 
+        ""
+    ],
+    "fresh_comment": "신선한 우유의 착유일을 확인하세요!",
+    "main_img_url": "https://www.jeongyookgak.com/assets/thumbnail/newblack/milk-fresh.jpg",
+    "name": "초신선 무항생제 우유",
+    "option_img_url": "",
+    "option_list": [
+        "병(900ml)",
+        "병(1000ml)"
+    ],
+    "produced_date": "2020-05-30",
+    "sales_price": "3400.00",
+    "sales_price_comment": "기준가 3,400원 (900ml)",
+    "sub_img_url": "https://www.jeongyookgak.com/assets/thumbnail/newwhite/milk-fresh.jpg",
+    "unit_price": "378.00",
+    "unit_price_comment": "100ml당 378원"
 }
+    
+
+      
+    
+  
+  

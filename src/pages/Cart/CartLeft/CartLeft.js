@@ -4,7 +4,7 @@ import './CartLeft.scss';
 
 class CartLeft extends Component {
     render() {
-        const { increase, decrease, number, price } = this.props;
+        const { onIncrease, onDecrease, onRemove, products } = this.props;
         return (
             <div className="CartLeft">
                 <div className="leftHead">
@@ -13,12 +13,27 @@ class CartLeft extends Component {
                     <span className="productPrice">가격</span>
                 </div>
                 <ul className="leftBody">
-                    <CartList 
-                        increase={increase} 
-                        decrease={decrease}
-                        number={number}
-                        price={price}
-                    />
+                    {
+                        products.map((product, i) => {
+                             console.log("map price: ", product.price);
+                            return (
+                                <CartList 
+                                    key={i}
+                                    onIncrease={onIncrease} 
+                                    onDecrease={onDecrease}
+                                    onRemove={onRemove}
+                                    id={product.id}
+                                    img={product.img}
+                                    name={product.name}
+                                    purpose={product.purpose}
+                                    standard={product.standard}
+                                    number={product.number}
+                                    price={product.price}
+                                />
+                            );
+                        })
+                    }
+                    
                 </ul>
             </div>
         );
