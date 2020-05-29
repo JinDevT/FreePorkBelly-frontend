@@ -1,1 +1,78 @@
 // component scss
+
+@import "../../styles/common.scss";
+
+* {
+    box-sizing: border-box;
+  }
+
+.Footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0, auto;
+    .footerTop {
+        height: 60px;
+        border-top: 1px solid gray;
+        border-bottom: 1px solid gray;
+        display: flex;
+        justify-content: space-around;
+        opacity: 0.5;
+        .leftTop {
+            margin: 20px 280px 20px 160px;   
+            width: 500px;
+            height: 62px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .rightTop {
+            width: 400px;
+            height: 62px;
+            margin: 20px 180px 20px 200px;
+        }
+    }
+    .footerBottom {
+        width: 1430px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 112px;
+        margin-top: 50px;
+        .logo {
+            width: 89px;
+            height: 104px;
+            }
+        .companyInfo {
+            padding-right: 300px;
+            line-height: 200%;
+            font-size: $font14;
+            opacity: 0.5;
+            .second {
+                margin-left: 20px;
+            }
+            .third {
+                margin-left: 20px;
+            }
+        }
+        .csCenter {
+            line-height: 200%;
+            margin-right: 100px;
+            text-align: right;
+            .cs {
+                font-size: $font18;
+                font-weight: 700;
+            }
+            .csPhone {
+                font-size: $font28;
+                font-weight: 700;
+            }
+            .csTime {
+                opacity: 0.5;
+            }
+            .lunchTime {
+                opacity: 0.5;
+            }
+        }
+    }
+}

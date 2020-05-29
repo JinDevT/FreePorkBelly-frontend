@@ -1,1 +1,9 @@
 // component scss
+@import "../../styles/common.scss";
+
+    .signin {
+        font-size: $font28;
+        text-align: center;
+        margin: 80px auto 50px auto;
+    }
+  
