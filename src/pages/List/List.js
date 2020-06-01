@@ -4,13 +4,14 @@ import Header from "../../components/Header/Header"
 import Footer from "../../components/Footer/Footer"
 import './List.scss';
 
+
 class List extends Component {
     state = {
         productList: []
     }
 
     componentDidMount(){
-        fetch("http://10.58.4.231:8000/product/category/0", {
+        fetch("http://10.58.4.231:8000/product/category/2", {
             method: "GET", 
             headers: {
                 "Content-Type": "application/json"
@@ -50,7 +51,6 @@ class List extends Component {
                                         name={product.name}
                                         salesPrice={product.sales_price_comment}
                                         unitPrice={product.unit_price_comment}
-                                       
                                     />
                                 );
                             })
