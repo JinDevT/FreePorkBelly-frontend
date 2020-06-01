@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Header from "../../components/Header/Header";
+import Footer from '../../../src/components/Footer/Footer';
+
 import './Login.scss';
 
 class Login extends Component {
-    
+
     state = {
         loginById: "",
         loginByPw: "",
@@ -25,8 +28,8 @@ class Login extends Component {
     clickEvent = () => {
         console.log(this.state.loginById);
         console.log(this.state.loginByPw);
-
-        fetch("http://10.58.0.24:8000/customer/signin", {
+//"http://10.58.0.24:8000/customer/signin"
+        fetch("http://10.58.4.74:8000/customer/signin", {
             method: "POST",
             body: JSON.stringify({
                 'email' : this.state.loginById,
@@ -48,6 +51,7 @@ class Login extends Component {
     render() {
         return (
             <div className="Login">
+              <Header />
                 <div className="loginText">로그인
                 </div>
                 <div className="loginContainer">
@@ -95,7 +99,7 @@ class Login extends Component {
             
             
             
-            
+              <Footer />
             </div>
         );
     }
