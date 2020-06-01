@@ -3,21 +3,16 @@ import { Link } from 'react-router-dom';
 import './CartList.scss'
 
 class CartList extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         num : 1 // props
-    //     }
-    // }
+   
     handleIncrease = () => {
-        const { onIncrease, id, number } = this.props;
-        console.log("number: ", number)
-        onIncrease(id);
+        const { onIncrease } = this.props;
+    
+        onIncrease();
     }
 
-    handleDecrease = (id) => {
+    handleDecrease = () => {
         const { onDecrease } = this.props;
-        onDecrease(id);
+        onDecrease();
     }
 
     handleRemove = () => {
@@ -26,26 +21,26 @@ class CartList extends Component {
     }
 
     render() {
-        const { id, img, name, purpose, standard, number, price} = this.props;
+        const { number, price} = this.props;
         console.log("cartList num: ", number)
         return (
             <>
                 <li className="CartList">
                     <div className="productList productDet">
                         <Link to=""className="productImg">
-                            <img alt="cartProductImg" src={img}/>
+                            <img src="https://www.jeongyookgak.com/assets/thumbnail/newcart/porkleg-fresh.jpg" alt="cartProductImg" />
                         </Link>
                         <Link to="" className="productInfo">
-                            <p className="productName">{name}</p>
-                            <p className="productPurpose">{purpose}</p>
+                            <p className="productName">초신선 돼지 앞다리</p>
+                            <p className="productPurpose">제육용</p>
                         </Link>
                     </div>
                     <div className="productList productNum">
-                        <span className="standard">{standard}</span>
+                        <span className="standard">100g 기준</span>
                         <div className="numberBtn">
                             <button typee="button" onClick={this.handleDecrease}>-</button>
                             <span className="number">{number}</span>
-                            <button type="button" onClick={this.handleIncrease}>+</button>
+                            <button type="button" onClick={() => {this.handleIncrease(number)}}>+</button>
                         </div>
                     </div>
                     <div className="productList productPre">
