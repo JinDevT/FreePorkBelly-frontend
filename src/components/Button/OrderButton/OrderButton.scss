@@ -1,0 +1,29 @@
+@import "../../../styles/common.scss";
+
+.stageBox {
+    width: 50%;
+    height: 60px;
+    button {
+        height: 100%;
+        width: 100%;
+        background: none;
+        border: none;
+        outline: none;
+        color: $white;
+        &.prevBtn {
+            background:$darkGrey;
+        }
+        &.nextBtn {
+            background: $black;
+        }
+        span {
+            font-size: $font16;
+            font-weight: 700;
+            line-height: 1.4;
+            letter-spacing: 1px;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

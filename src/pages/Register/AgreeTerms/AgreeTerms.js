@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './AgreeTerms.scss';
 
 class AgreeTerms extends Component {
@@ -445,10 +446,11 @@ E - M A I L　: help@yookgak.com
                         </div>
                     
                     <div className="bottomBtn">
-                        <button 
-                            className="backBtn">
+                        <Link to="/index">
+                        <button className="backBtn">
                             이전으로
                         </button>
+                        </Link>
                         <button 
                             className="agreeBtn" 
                             onClick={this.props.stageChange}
