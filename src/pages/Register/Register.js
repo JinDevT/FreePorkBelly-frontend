@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import InfoRegister from '../Register/InfoRegister/InfoRegister';
 import AgreeTerms from '../Register/AgreeTerms/AgreeTerms';
 import './Register.scss';
