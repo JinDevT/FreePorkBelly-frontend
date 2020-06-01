@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Explicate.scss';
-
 class Explicate extends Component {
     constructor(props) {
         super(props);
