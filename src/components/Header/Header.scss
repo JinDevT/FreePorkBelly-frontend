@@ -22,7 +22,6 @@
         font-size: 38px;
         color: white;
         font-weight: 700;
-        
       }
     }
     .navContainer {
@@ -40,7 +39,7 @@
         justify-content: flex-end;
         margin-bottom: 25px;
         opacity: 0.5;
-        cursor: pointer;
+        cursor: pointer;        
         .verticalLine {
           border-right: 1px soild white;
           margin-left: 20px;
@@ -65,7 +64,10 @@
           font-size: $font18;
           font-weight: 700;
           cursor: pointer;
-          
+          :hover {
+          margin-bottom: 10px;
+          text-decoration: underline white;
+        }
           div {
             margin-left: 70px;
           }
