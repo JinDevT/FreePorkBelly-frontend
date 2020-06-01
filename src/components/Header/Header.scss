@@ -1,7 +1,6 @@
 @import "../../styles/common.scss";
 
 .Header {
-  margin-top: 20px;
   background-color: black;
   width: 100%;
   .narrowHeader {
@@ -40,6 +39,7 @@
         justify-content: flex-end;
         margin-bottom: 25px;
         opacity: 0.5;
+        cursor: pointer;        
         .verticalLine {
           border-right: 1px soild white;
           margin-left: 20px;
@@ -63,6 +63,11 @@
           align-items: center;
           font-size: $font18;
           font-weight: 700;
+          cursor: pointer;
+          :hover {
+          margin-bottom: 10px;
+          text-decoration: underline white;
+        }
           div {
             margin-left: 70px;
           }
@@ -74,6 +79,7 @@
           width: 90px;
           display: flex;
           justify-content: space-between;
+          cursor: pointer;
         }
     }
     .cart, .menu {

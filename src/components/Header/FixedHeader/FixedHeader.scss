@@ -8,6 +8,7 @@
   height: 80px;
   background-color:white;  
   margin: 0 auto;
+  display: none; // none으로 일단 해두고 스크롤 시 나타나는 기능 추후 구현
   .logoContainer1 {
     cursor: pointer;
     img {
