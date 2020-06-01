@@ -28,8 +28,8 @@ class Login extends Component {
     clickEvent = () => {
         console.log(this.state.loginById);
         console.log(this.state.loginByPw);
-
-        fetch("http://10.58.0.24:8000/customer/signin", {
+//"http://10.58.0.24:8000/customer/signin"
+        fetch("http://10.58.4.74:8000/customer/signin", {
             method: "POST",
             body: JSON.stringify({
                 'email' : this.state.loginById,
