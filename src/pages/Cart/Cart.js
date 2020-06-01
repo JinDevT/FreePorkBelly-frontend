@@ -13,19 +13,6 @@ class Cart extends Component {
             price: 13000
         }
     }
-
-    // componentDidMount() {
-    //     fetch("/data/cart.json",  {
-    //         method: "GET",
-    //         headers: {
-    //             "Content-type": "application/json",
-    //         },
-    //     })
-    //     .then(res => res.json())
-    //     .then(res => this.setState({
-    //         products : res
-    //     }))
-    // }
     
     handleDecrease = () => {
         const { number } = this.state;
