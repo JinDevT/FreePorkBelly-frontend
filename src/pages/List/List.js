@@ -4,7 +4,6 @@ import Header from "../../components/Header/Header"
 import Footer from "../../components/Footer/Footer"
 import './List.scss';
 
-
 class List extends Component {
     state = {
         productList: []
