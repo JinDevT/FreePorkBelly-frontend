@@ -7,8 +7,8 @@ import './AddressInfo.scss';
 class AddressInfo extends Component {
     render() {
         return (
-            <>
-                <div className="AddressInfo">
+            <div className="AddressInfo">
+                <div className="stageInfo">
                     <div className="stageState">
                         <ul className="stateList">
                             <li>
@@ -32,7 +32,7 @@ class AddressInfo extends Component {
                     </div>
                     
                 </div>
-            </>
+            </div>
         );
     }
 }
