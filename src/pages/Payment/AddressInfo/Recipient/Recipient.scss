@@ -1,0 +1,63 @@
+@import "../../../../styles/common.scss";
+
+.Recipient {
+    margin: 50px 30px 30px;
+    .userTit {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px 0 30px;
+        h2 {
+            font-size: 25px;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+        button {
+            height: 32px;
+            padding: 0 20px;
+            background: #f7f7f7;
+            border: 1px solid #737373;
+            border-radius: 4px;
+            outline: none;
+            span {
+                font-size: 15px;
+                font-weight: 700;
+                line-height: 1.4;
+            }
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    .payTable {
+        display: table;
+        width: 100%;
+        border: 1px solid $grey;
+        .payTableRow {
+            display: table-row;
+            height: 50px;
+            .payTableCell {
+                display: table-cell;
+                padding: 20px 0;
+                border-right: 1px solid $grey;
+                border-bottom: 1px solid $grey;
+                span {
+                    margin-left: 30px;
+                    line-height: 2;
+                }
+                &:last-child {
+                    border-right: none;
+                }
+                &.cellTit {
+                    width: 20%;
+                    background: #f7f7f7;
+                }
+            }
+            &:last-child {
+                .payTableCell {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+}
