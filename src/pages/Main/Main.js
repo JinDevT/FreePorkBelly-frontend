@@ -4,6 +4,7 @@ import Header from "../../components/Header/Header";
 import ProductImages from "../Main/ProductImages/ProductImages";
 import Footer from '../../../src/components/Footer/Footer';
 import FixedHeader from "../../components/Header/FixedHeader/FixedHeader";
+import TopButton from "../Main/TopButton/TopButton"
 import "./Main.scss";
 
 class Main extends Component {
@@ -11,6 +12,8 @@ class Main extends Component {
   state = {
     productList: []
 }
+
+
 
 componentDidMount(){
     fetch("http://10.58.4.74:8000/product/main", {
@@ -29,10 +32,13 @@ componentDidMount(){
     const { productList } = this.state;
     // console.log("render:", productList.products_info)
     console.log("productList: ", this.state.productList)
+
+
+
     return (
       <div>
         <Header />
-        <FixedHeader />
+        
         <main className="main">
           <div className="mainPagePork">
             <img
@@ -89,6 +95,7 @@ componentDidMount(){
             </Link>
           </div>
         </main>
+        <TopButton/>
         <Footer/>
       </div>
     );
