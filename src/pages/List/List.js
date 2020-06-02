@@ -10,7 +10,7 @@ class List extends Component {
     }
 
     componentDidMount(){
-        fetch("http://10.58.4.231:8000/product/category/2", {
+        fetch("http://10.58.4.74:8000/product/category/0", {
             method: "GET", 
             headers: {
                 "Content-Type": "application/json"

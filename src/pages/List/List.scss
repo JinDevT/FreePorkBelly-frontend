@@ -17,7 +17,8 @@
 .showRoom {
     width: 1200px;
     display: flex;
+    justify-content: flex-start;
     flex-wrap: wrap;
     margin: 0 auto;
-    justify-content: space-between;
+    
 }

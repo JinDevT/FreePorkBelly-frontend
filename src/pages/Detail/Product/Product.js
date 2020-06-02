@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import { Link, withRouter} from 'react-router-dom';
 import './Product.scss';
 class Product extends Component {
     constructor(props) {
         super(props);
         this.state = {
             number: 1,
+            customerId: 3, // userid
+            productId: 3, // productId
             optionValue : "",
+            optionId : "",
             selectOption : false,
             productDetail : [],
             options : []
@@ -13,7 +17,7 @@ class Product extends Component {
     }
 
     componentDidMount() {
-        fetch("http://10.58.4.231:8000/product/detail/1",  {
+        fetch("http://10.58.4.74:8000/product/detail/1",  {
             method: "GET",
             headers: {
                 "Content-type": "application/json",
@@ -22,9 +26,34 @@ class Product extends Component {
         .then(res => res.json())
         .then(res => this.setState({
             productDetail : res.product_detail,
-            optionValue : res.product_detail.option_list[0],
+            optionValue : res.product_detail.option_list[0]["option_name"],
             options : res.product_detail.option_list
-        }))
+        })).catch(err => console.log("err: ", err))
+    }
+
+    handleGoCart = () => {
+        const { customerId, productId , optionId, number } = this.state;
+        fetch("http://10.58.4.74:8000/order/cart" , {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({
+                customer_id : customerId,
+                product_id : productId,
+                selected_option_id : optionId,
+                quantity : number 
+            })
+        })
+        .then(res => res.json())
+        .then(res => {
+            if(res.status === 200) {
+                this.props.history.push("/cart");
+            }else {
+                alert("로그인하고 이용주시길 바랍니다.")
+                this.props.history.push("/login");
+            }
+        }).catch(err => console.log("err: ", err))
     }
 
     // 수량감소 버튼
@@ -58,9 +87,12 @@ class Product extends Component {
     // option value change
     handleOption = value =>{
         this.setState({
-            optionValue: value
+            optionId: value["option_id"],
+            optionValue: value["option_name"]
         }, () => this.openOption())
     }
+
+
 
     render() {
         const { number, optionValue, selectOption, productDetail, options } = this.state;
@@ -99,7 +131,7 @@ class Product extends Component {
                                                     key={index}
                                                     onClick={() => this.handleOption(option)}
                                                 >
-                                                    {option}
+                                                    {option["option_name"]}
                                                 </div>
                                             )
                                         })
@@ -109,7 +141,7 @@ class Product extends Component {
                         </div>
                         <div className="infoBottom">
                             <div className="bottomBtn">
-                                <button type="button" className="buyBtn">
+                                <button type="button" className="buyBtn" onClick={this.handleGoCart}>
                                     <span>바로구매</span>
                                 </button>
                             </div>
@@ -136,4 +168,4 @@ class Product extends Component {
     }
 }
 
-export default Product;
+export default withRouter(Product);
