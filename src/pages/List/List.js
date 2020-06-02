@@ -22,6 +22,28 @@ class List extends Component {
         }, () => console.log("response setState: ", this.state.productList)))
     }
 
+
+
+
+
+
+
+    // componentDidMount() {
+    //     fetch("https://jsonplaceholder.typicode.com/users/${this.props.match.params.id}")      //${this.props.match.params.id}
+    //    .then(res => res.json())
+    //    .then(res => this.setState({ productList: res}));
+    // }
+  
+        // componentDidUpdate(prevProps) {
+        //   if ( prevProps.match.params.id !== this.props.match.params.id) {
+        //     fetch('https://jsonplaceholder.typicode.com/${this.props.match.params.id}'
+        //   )
+        //   .then(res => res.json())
+        //   .then(res => this.setState({ user: res}));
+        // }
+
+
+
     render() {
         const { productList } = this.state;
         console.log("render: ", productList.products_info)
@@ -33,7 +55,7 @@ class List extends Component {
                     </div>
                     <div className="menu">
                         <div className="all">전체보기</div>
-                        <div className="pork">돼지고기</div>
+                        <div className="pork" onClick={() => this.props.history.push("/1")}>돼지고기</div>
                         <div className="beef">소고기</div>
                         <div className="chicken">닭고기</div>
                         <div className="egg">달걀</div>
