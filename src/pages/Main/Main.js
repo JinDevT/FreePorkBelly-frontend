@@ -16,7 +16,7 @@ class Main extends Component {
 
 
 componentDidMount(){
-    fetch("http://10.58.4.74:8000/product/main", {
+    fetch("http://10.58.2.176:8000/product/main", {
         method: "GET", 
         headers: {
             "Content-Type": "application/json"
