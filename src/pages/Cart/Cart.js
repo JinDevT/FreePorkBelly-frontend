@@ -4,7 +4,7 @@ import Footer from '../../components/Footer/Footer';
 import CartLeft from './CartLeft/CartLeft';
 import CartRight from './CartRight/CartRight';
 import './Cart.scss';
-import CartList from './CartLeft/CartList/CartList';
+
 class Cart extends Component {
     constructor(props) {
         super(props);
@@ -24,7 +24,7 @@ class Cart extends Component {
         })
         .then(res => res.json())
         .then(res => this.setState({
-            cartList : res.data,
+            cartList : res.cart_items,
         }, () => console.log(this.state.cartList)))
     }
 
@@ -128,7 +128,7 @@ class Cart extends Component {
                             number={number}
                             price={price}
                         />
-                        <CartRight allPrice={allPrice}  />
+                        <CartRight  />
                     </div>
                 </div>
                 <Footer />
