@@ -9,37 +9,33 @@ class List extends Component {
         productList: []
     }
 
-    componentDidMount(){
-        fetch("http://10.58.4.74:8000/product/category/0", {
-            method: "GET", 
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-        .then(response => response.json())
-        .then(response => this.setState({
-            productList: response
-        }, () => console.log("response setState: ", this.state.productList)))
-    }
-
-
-
-
-
-
-
-    // componentDidMount() {
-    //     fetch("https://jsonplaceholder.typicode.com/users/${this.props.match.params.id}")      //${this.props.match.params.id}
-    //    .then(res => res.json())
-    //    .then(res => this.setState({ productList: res}));
+    // componentDidMount(){
+    //     fetch("http://10.58.4.74:8000/product/category/0", {
+    //         method: "GET", 
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         }
+    //     })
+    //     .then(response => response.json())
+    //     .then(response => this.setState({
+    //         productList: response
+    //     }, () => console.log("response setState: ", this.state.productList)))
     // }
+
+    // ${this.props.match.params.id}
+
+    componentDidMount() {
+        fetch("http://10.58.2.176:8000/product/category/0")
+       .then(res => res.json())
+       .then(res => this.setState({ productList: res}));
+    }
   
         // componentDidUpdate(prevProps) {
         //   if ( prevProps.match.params.id !== this.props.match.params.id) {
-        //     fetch('https://jsonplaceholder.typicode.com/${this.props.match.params.id}'
+        //     fetch('"http://10.58.2.176:8000/product/category/${this.props.match.params.id}'
         //   )
         //   .then(res => res.json())
-        //   .then(res => this.setState({ user: res}));
+        //   .then(res => this.setState({ productList: res}));
         // }
 
 
@@ -54,7 +50,7 @@ class List extends Component {
                         <img className="bestFresh" src="https://www.jeongyookgak.com/assets/list/01.png"/>
                     </div>
                     <div className="menu">
-                        <div className="all">전체보기</div>
+                        <div className="all" onClick={() => this.props.history.push("/url-parameters/5")}>전체보기</div>
                         <div className="pork" onClick={() => this.props.history.push("/1")}>돼지고기</div>
                         <div className="beef">소고기</div>
                         <div className="chicken">닭고기</div>
