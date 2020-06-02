@@ -13,15 +13,19 @@ class List extends Component {
         fetch("http://10.58.2.176:8000/product", {
             method: "GET", 
             headers: {
-                "Content-type": "application/json"
+                "Content-Type": "application/json"
             }
         })
         .then(response => response.json())
-        .then(response => console.log(response));
+        .then(response => this.setState({
+            productList: response.data
+        }))
+    }
+    
         // .then(response => this.setState({
         //     productList: response
         // }, () => console.log("response setState: ", this.state.productList)))
-    }
+    // }
 
     // ${this.props.match.params.id}
 
