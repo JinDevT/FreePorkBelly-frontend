@@ -26,7 +26,6 @@ class Cart extends Component {
         }
     };
     
-    // 스프레드 오퍼레이터 ...
     handleIncrease = () => {
         const { number } = this.state;
         console.log("증가 눌러서 여기 들어왔어!!", number)

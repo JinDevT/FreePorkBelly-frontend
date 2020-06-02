@@ -4,16 +4,16 @@ import './CartList.scss'
 
 class CartList extends Component {
    
-    handleIncrease = () => {
-        const { onIncrease } = this.props;
+    // handleIncrease = () => {
+    //     const { onIncrease } = this.props;
     
-        onIncrease();
-    }
+    //     onIncrease();
+    // }
 
-    handleDecrease = () => {
-        const { onDecrease } = this.props;
-        onDecrease();
-    }
+    // handleDecrease = () => {
+    //     const { onDecrease } = this.props;
+    //     onDecrease();
+    // }
 
     handleRemove = () => {
         const { id, onRemove } = this.props;
@@ -21,7 +21,7 @@ class CartList extends Component {
     }
 
     render() {
-        const { number, price} = this.props;
+        const { number, price, onIncrease, onDecrease } = this.props;
         console.log("cartList num: ", number)
         return (
             <>
@@ -38,9 +38,9 @@ class CartList extends Component {
                     <div className="productList productNum">
                         <span className="standard">100g 기준</span>
                         <div className="numberBtn">
-                            <button typee="button" onClick={this.handleDecrease}>-</button>
+                            <button typee="button" onClick={onDecrease}>-</button>
                             <span className="number">{number}</span>
-                            <button type="button" onClick={() => {this.handleIncrease(number)}}>+</button>
+                            <button type="button" onClick={onIncrease}>+</button>
                         </div>
                     </div>
                     <div className="productList productPre">
@@ -50,6 +50,7 @@ class CartList extends Component {
                         <button type="button" onClick={this.handleRemove}>x</button>
                     </div>
                 </li>
+                
             </>
         );
     }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import './Product.scss';
 class Product extends Component {
     constructor(props) {
@@ -17,7 +17,7 @@ class Product extends Component {
     }
 
     componentDidMount() {
-        fetch("http://10.58.4.74:8000/product/detail/1",  {
+        fetch("http://10.58.2.176:8000/product/detail/1",  {
             method: "GET",
             headers: {
                 "Content-type": "application/json",
@@ -33,7 +33,7 @@ class Product extends Component {
 
     handleGoCart = () => {
         const { customerId, productId , optionId, number } = this.state;
-        fetch("http://10.58.4.74:8000/order/cart" , {
+        fetch("http://10.58.2.176:8000/order/cart" , {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
@@ -45,7 +45,7 @@ class Product extends Component {
                 quantity : number 
             })
         })
-        .then(res => res.json())
+      
         .then(res => {
             if(res.status === 200) {
                 this.props.history.push("/cart");
