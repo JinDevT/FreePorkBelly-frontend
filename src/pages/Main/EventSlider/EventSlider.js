@@ -5,14 +5,28 @@ import "slick-carousel/slick/slick-theme.css";
 import './EventSlider.scss'
 
 
-class EventSlider extends Component {
+export default class EventSlider extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.next = this.next.bind(this);
+  //   this.previous = this.previous.bind(this);
+  // }
+  // next() {
+  //   this.slider.slickNext();
+  // }
+  // previous() {
+  //   this.slider.slickPrev();
+  // }
+
   render() {
     const settings = {
       dots: true,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
     };
     return (
       <div className="EventSlider">
@@ -30,9 +44,16 @@ class EventSlider extends Component {
                    alt="appEvent" />
             </div>
         </Slider>
+            {/* <div>
+              <button className="button" onClick={this.previous}>
+                Previous
+              </button>
+              <button className="button" onClick={this.next}>
+                Next
+              </button>
+            </div> */}
       </div>
     );
   }
 }
 
-export default EventSlider;

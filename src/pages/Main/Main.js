@@ -5,6 +5,7 @@ import ProductImages from "../Main/ProductImages/ProductImages";
 import Footer from '../../../src/components/Footer/Footer';
 import TopButton from "../Main/TopButton/TopButton"
 import EventSlider from "./EventSlider/EventSlider"
+import NoticeSlider from "./NoticeSlider/NoticeSlider"
 import "./Main.scss";
 
 class Main extends Component {
@@ -59,9 +60,10 @@ componentDidMount(){
           </div>
           <div className="notice">
             <div className="noticeHead">공지사항</div>
+            <div className="noticeFirst"></div>
             <div className="noticeMiddle">
               <ul>
-                <li>스킨 포장 안내 </li>
+                <NoticeSlider />
               </ul>
             </div>
             <div className="noticeLast">더보기</div>
