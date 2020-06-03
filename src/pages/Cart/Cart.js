@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { API } from '../../config.js';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import CartLeft from './CartLeft/CartLeft';
@@ -11,82 +12,109 @@ class Cart extends Component {
         this.state = {
             cartList: [],
             cartQuantity: "",
+            addPrice: 0
         }
     }
     
     componentDidMount() {
-        fetch("http://10.58.2.176:8000/order/cart" , {
+        localStorage.setItem("access_token", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lcl9pZCI6NH0.xeQ7_gfDUiKnLVqnIfCtPbyBQ7i7x8m-2xRDHEAGdmM")
+        const token = localStorage.getItem("access_token");
+        console.log(token)
+        fetch(`${API}/order/cart` , {
             method: "GET",
             headers: {
                 "Content-type": "application/json",
-                "Authorization" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lcl9pZCI6MX0.ibPkQgVjNLXv3uLogTIOdjK9A87qVm62YGyhDUJIKm8"
+                "Authorization" : token
             },
         })
         .then(res => res.json())
         .then(res => this.setState({
             cartList : res.cart_items,
-        }, () => console.log(this.state.cartList)))
+            addPrice : res.cart[0]["total_amount"]
+        }))
+    }
+
+    // 총 상품금액 함수
+    getData = () => {
+        const token = localStorage.getItem("access_token");
+        fetch(`${API}/order/cart`, {
+            method: "GET",
+            headers: {
+                "Content-type": "application/json",
+                "Authorization" : token
+            },
+        })
+        .then(res => res.json())
+        .then(res => this.setState({
+            addPrice : res.cart[0]["total_amount"],
+        }))
     }
 
     handleDecrease = (list) => {
+        const token = localStorage.getItem("access_token");
         const { cartList } = this.state;
-        const ListCart = [...cartList];
-        const i = ListCart.indexOf(list);
-        cartList[i] = {...list}
-        cartList[i].quantity--;
-           
-        fetch("http://10.58.2.176:8000/order/cart" , {
+        const listCart = [...cartList];
+        const i = listCart.indexOf(list);
+        cartList[i] = {...list, quantity: --list.quantity};
+        fetch(`${API}/order/cart`, {
             method: "POST",
             headers: {
                 "Content-type": "application/json",
-                "Authorization" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lcl9pZCI6MX0.ibPkQgVjNLXv3uLogTIOdjK9A87qVm62YGyhDUJIKm8"
+                "Authorization" : token
             },
             body : JSON.stringify({
                 product_id: cartList[i].product_id,
                 quantity : cartList[i].quantity
             })
         })
-        .then(res => console.log("res: ", res))
+        .then(res => {
+            if (res.status === 200) {
+                this.getData();
+            }
+        })
         this.setState({
             cartList
         })
     };
     
     handleIncrease = (list) => {
+        const token = localStorage.getItem("access_token");
         const { cartList } = this.state;
-        console.log("list: ", list)
-        const ListCart = [...cartList];
-        const i = ListCart.indexOf(list);
-        cartList[i] = {...list}
-        cartList[i].quantity++
-        fetch("http://10.58.2.176:8000/order/cart" , {
+        const listCart = [...cartList];
+        const i = listCart.indexOf(list);
+        cartList[i] = {...list, quantity: ++list.quantity}
+        fetch(`${API}/order/cart`, {
             method: "POST",
             headers: {
                 "Content-type": "application/json",
-                "Authorization" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lcl9pZCI6MX0.ibPkQgVjNLXv3uLogTIOdjK9A87qVm62YGyhDUJIKm8"
+                "Authorization" : token
             },
             body : JSON.stringify({
                 product_id: cartList[i].product_id,
                 quantity : cartList[i].quantity
             })
         })
-        .then(res => console.log("res: ", res))
+        .then(res => {
+            if (res.status === 200) {
+                this.getData();
+            }
+        })
         this.setState({
             cartList
         })
     }
 
     handleRemove = list => {
+        const token = localStorage.getItem("access_token");
         const { cartList } = this.state;
-        console.log("list: ", list)
-        const ListCart = [...cartList];
-        const i = ListCart.indexOf(list);
+        const listCart = [...cartList];
+        const i = listCart.indexOf(list);
         cartList[i] = {...list}
-        fetch("http://10.58.2.176:8000/order/cart" , {
+        fetch(`${API}/order/cart` , {
             method: "DELETE",
             headers: {
                 "Content-type": "application/json",
-                "Authorization" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lcl9pZCI6MX0.ibPkQgVjNLXv3uLogTIOdjK9A87qVm62YGyhDUJIKm8"
+                "Authorization" : token
             },
             body : JSON.stringify({
                 product_id: cartList[i].product_id,
@@ -94,23 +122,16 @@ class Cart extends Component {
         })
         .then(res => {
             if(res.status === 200) {
-                this.setState({
-                    cartList: cartList.filter(cartList => cartList.product_id !== list.product_id)
-                })
+                this.getData();
             }
         })
-        
-}
-
-    calc = ( ) => {
-        const { number, price } = this.state;
         this.setState({
-            allPrice : price * number
-        }, () => console.log("calc :", this.state.allPrice));
+            cartList: cartList.filter(cartList => cartList.product_id !== list.product_id)
+        })
     }
-
+  
     render() {
-        const {  number, price, allPrice, cartList, cartQuantity } = this.state;
+        const {  cartList, cartQuantity } = this.state;
         return (
             <div className="Cart">
                 <Header />
@@ -125,10 +146,8 @@ class Cart extends Component {
                             onRemove={this.handleRemove}
                             cartList={cartList}
                             cartQuantity={cartQuantity}
-                            number={number}
-                            price={price}
                         />
-                        <CartRight  />
+                        <CartRight totalPrice={this.state.addPrice}/>
                     </div>
                 </div>
                 <Footer />
