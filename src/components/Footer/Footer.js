@@ -20,7 +20,7 @@ class Footer extends Component {
                     </div>
                     <div className="footerBottom">
                         <div className="logo">
-                            <img ClassName="logo" src="https://www.jeongyookgak.com/assets/footer_logo.svg"></img>
+                            <img className="logo" src="https://www.jeongyookgak.com/assets/footer_logo.svg"></img>
                         </div>
                         <div className="companyInfo">
                             <span className="first">(주)정육각</span> <span className="second">대표이사:김재연</span> <span className="third">주소:경기도 성남시 중원구 순환로212, 1층</span>

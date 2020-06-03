@@ -1,12 +1,34 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import Header from "../../components/Header/Header";
-import ProductImages from "../../components/ProductImages/ProductImages";
+import ProductImages from "../Main/ProductImages/ProductImages";
 import Footer from '../../../src/components/Footer/Footer';
-import "./Main.scss";
 import FixedHeader from "../../components/Header/FixedHeader/FixedHeader";
+import "./Main.scss";
 
 class Main extends Component {
+
+  state = {
+    productList: []
+}
+
+componentDidMount(){
+    fetch("http://10.58.4.74:8000/product/main", {
+        method: "GET", 
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(response => response.json())
+    .then(response => this.setState({
+        productList: response.data
+    }))
+}
+
   render() {
+    const { productList } = this.state;
+    // console.log("render:", productList.products_info)
+    console.log("productList: ", this.state.productList)
     return (
       <div>
         <Header />
@@ -47,11 +69,24 @@ class Main extends Component {
           </div>
           <div className="bestProduct">베스트상품</div>
           <div className="prodcutImagesContainer">
-            <ProductImages />
-            <ProductImages />
-            <ProductImages />
-            <ProductImages />
-            <ProductImages />
+                        {
+                            productList && productList.map((product, index) => {
+                                return (
+                                    <ProductImages 
+                                        key={index}
+                                        imgUrl={product.sub_img_url}
+                                        name={product.name}
+                                        salesPrice={product.sales_price_comment}
+                                        unitPrice={product.unit_price_comment}
+                                    />
+                                );
+                            })
+                        }
+          </div>
+          <div className="goShop">
+            <Link className="goShopping" to="/list">
+              <button className="goShopping">쇼핑하러 가기</button>
+            </Link>
           </div>
         </main>
         <Footer/>
