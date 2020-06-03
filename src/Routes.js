@@ -19,7 +19,7 @@ class Routes extends Component {
               <Route exact path="/index" component={Main}/>
               <Route exact path="/login" component={Login}/>
               <Route exact path="/register" component={Register}/>
-              <Route exact path="/list" component={List}/>
+              <Route exact path="/product" component={List}/>
               <Route exact path="/detail" component={Detail}/>
               <Route exact path="/cart" component={Cart}/>
               <Route exact path="/payment" component={Payment}/>
