@@ -12,7 +12,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-slick": "^0.26.1",
-    "sass": "^1.26.5"
+    "sass": "^1.26.5",
+    "slick-carousel": "^1.8.1"
   },
   "scripts": {
     "start": "react-scripts start",
