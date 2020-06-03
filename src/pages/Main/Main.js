@@ -90,7 +90,6 @@ componentDidMount(){
         </main>
         <TopButton/>
         <Footer/>
-        <EventSlider/>
       </div>
     );
   }
