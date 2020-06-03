@@ -3,7 +3,6 @@ import Sender from './Sender/Sender'
 import Recipient from '../AddressInfo/Recipient/Recipient'
 import OrderButton from '../../../components/Button/OrderButton/OrderButton';
 import './AddressInfo.scss';
-
 class AddressInfo extends Component {
     render() {
         return (
