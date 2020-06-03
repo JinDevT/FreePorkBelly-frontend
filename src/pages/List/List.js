@@ -31,8 +31,6 @@ class List extends Component {
             productList: response.products_info
         }));
     }
-        
-
 
     render() {
         const { productList } = this.state;
@@ -45,24 +43,25 @@ class List extends Component {
                         <img className="bestFresh" src="https://www.jeongyookgak.com/assets/list/01.png"/>
                     </div>
                     <div className="menu">
-                        <div className="all" onClick={() => this.props.history.push("/product")}>전체보기</div>
-                        <div className="pork" onClick={() => this.props.history.push("/product?category_id=1")}>돼지고기</div>
-                        <div className="beef" onClick={() => this.props.history.push("/product?category_id=2")}>소고기</div>
-                        <div className="chicken" onClick={() => this.props.history.push("/product?category_id=3")}>닭고기</div>
-                        <div className="egg" onClick={() => this.props.history.push("/product?category_id=4")}>달걀</div>
-                        <div className="milk" onClick={() => this.props.history.push("/product?category_id=5")}>우유</div>
-                        <div className="baby" onClick={() => this.props.history.push("/product?category_id=6")}>이유식</div>
+                        <div className="all" onClick={() => this.props.history.push("/list")}>전체보기</div>
+                        <div className="pork" onClick={() => this.props.history.push("?category_id=1")}>돼지고기</div>
+                        <div className="beef" onClick={() => this.props.history.push("?category_id=2")}>소고기</div>
+                        <div className="chicken" onClick={() => this.props.history.push("?category_id=3")}>닭고기</div>
+                        <div className="egg" onClick={() => this.props.history.push("?category_id=4")}>달걀</div>
+                        <div className="milk" onClick={() => this.props.history.push("?category_id=5")}>우유</div>
+                        <div className="baby" onClick={() => this.props.history.push("?category_id=6")}>이유식</div>
                     </div>
                     <div className="showRoom">
                         {
                             productList && productList.map((product, index) => {
                                 return (
-                                    <ProductImages 
+                                    <ProductImages
                                         key={index}
                                         imgUrl={product.sub_img_url}
                                         name={product.name}
                                         salesPrice={product.sales_price_comment}
                                         unitPrice={product.unit_price_comment}
+                                        productId={product.product_id}
                                     />
                                 );
                             })
