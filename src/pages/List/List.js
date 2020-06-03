@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ProductImages from "../List/ProductImages/ProductImages";
 import Header from "../../components/Header/Header"
 import Footer from "../../components/Footer/Footer"
+import { API } from '../../config';
 import './List.scss';
 
 class List extends Component {
@@ -10,7 +11,19 @@ class List extends Component {
     }
 
     componentDidMount(){
-        fetch("http://10.58.0.134:8000/product", {
+        this.getData();
+    }
+
+    componentDidUpdate = (prevProps, prevState) => {
+        if(prevProps.location.search !== this.props.location.search) {
+            this.getData();
+        }
+    }
+
+    // let category_info = 
+
+    getData = () => {
+        fetch(`${API}/{{category_info}}`, {
             method: "GET", 
             headers: {
                 "Content-Type": "application/json"
@@ -47,6 +60,7 @@ class List extends Component {
     // }
 
 
+
     render() {
         const { productList } = this.state;
         console.log("render: ", productList.products_info)
@@ -57,8 +71,8 @@ class List extends Component {
                         <img className="bestFresh" src="https://www.jeongyookgak.com/assets/list/01.png"/>
                     </div>
                     <div className="menu">
-                        <div className="all" onClick={() => this.props.history.push("/0")}>전체보기</div>
-                        <div className="pork" onClick={() => this.props.history.push("/1")}>돼지고기</div>
+                        <div className="all" onClick={() => this.props.history.push("product/0")}>전체보기</div>
+                        <div className="pork" onClick={() => this.props.history.push("product?category_id=1")}>돼지고기</div>
                         <div className="beef">소고기</div>
                         <div className="chicken">닭고기</div>
                         <div className="egg">달걀</div>
