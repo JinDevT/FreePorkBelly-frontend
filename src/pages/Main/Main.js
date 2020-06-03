@@ -6,6 +6,7 @@ import Footer from '../../../src/components/Footer/Footer';
 import TopButton from "../Main/TopButton/TopButton"
 import EventSlider from "./EventSlider/EventSlider"
 import NoticeSlider from "./NoticeSlider/NoticeSlider"
+import { API } from '../../../src/config'
 import "./Main.scss";
 
 class Main extends Component {
@@ -17,7 +18,7 @@ class Main extends Component {
 
 
 componentDidMount(){
-    fetch("http://10.58.0.134:8000/product/main", {
+    fetch(`${API}/product/main`, {
         method: "GET", 
         headers: {
             "Content-Type": "application/json"
