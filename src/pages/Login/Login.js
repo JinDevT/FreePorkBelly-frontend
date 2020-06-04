@@ -11,7 +11,6 @@ class Login extends Component {
         loginById: "",
         loginByPw: "",
         btState: true,
-        stage: true,
     };
 
     handleChange = () => {
@@ -48,8 +47,7 @@ class Login extends Component {
                 console.log(response);
                 localStorage.setItem("wtw-token", response.token);
                 this.props.history.push("/index");
-                console.log("stage value: ", this.state.stage);
-                // console.log("response token :", reponse);
+                
             } else if (!response.token) {
                 alert("로그인 오류");
             }
@@ -100,13 +98,7 @@ class Login extends Component {
                         <img className="kakao" src="https://www.jeongyookgak.com/assets/login/kakao.svg"></img>
                         <div>카카오톡 로그인</div>
                     </div>
-                </div>
-            
-            
-            
-            
-            
-            
+                </div>           
               <Footer />
             </div>
         );
