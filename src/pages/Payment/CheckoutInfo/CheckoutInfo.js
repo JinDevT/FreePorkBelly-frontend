@@ -13,7 +13,6 @@ class CheckoutInfo extends Component {
         this.state = {
             cartList: [],
             addPrice: 0,
-            isMadalShow: false
         }
     }
     
