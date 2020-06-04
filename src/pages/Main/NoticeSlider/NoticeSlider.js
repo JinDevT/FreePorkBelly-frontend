@@ -27,11 +27,12 @@ export default class NoticeSlider extends Component {
       slidesToScroll: 1,
       autoplay: true,
       autoplaySpeed: 2000,
-      vertical: true
+      vertical: true,
+      
     };
     return (
       <div className="NoticeSlider">
-        <Slider {...settings}>
+        <Slider ref={c => (this.slider = c)} {...settings}>
             <div>
                 <li>스킨 포장 안내 </li>
             </div>

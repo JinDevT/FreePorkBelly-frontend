@@ -1,5 +1,9 @@
 @import "../../../../styles/common.scss";
 
+.not_scroll {
+    overflow: hidden;
+}
+
 .Recipient {
     margin: 50px 30px 30px;
     .userTit {

@@ -18,12 +18,12 @@ class Header extends Component {
 
   toggleVisibility() {
     if (window.pageYOffset > 200) { 
-      console.log("more", window.pageYOffset);
+      // console.log("more", window.pageYOffset);
       this.setState({
         isVisible: true
       });
-    } else if(window.pageYOffset <= 300) {
-      console.log("less", window.pageYOffset);
+    } else if(window.pageYOffset <= 200) {
+      // console.log("less", window.pageYOffset);
       this.setState({
         isVisible: false
       });
@@ -84,7 +84,6 @@ class Header extends Component {
       
       <div className="FixedHeader">          
       { isVisible ? <FixedHeader/> : null} 
-      {/* { isVisible } <FixedHeader />  */}
       </div> 
       </>
     );
