@@ -53,7 +53,7 @@ class Header extends Component {
                 <span>이벤트</span>
                 <span>공지사항</span>
                 <span>이용가이드</span>
-                <LoginMypage />
+                <LoginRegister />
                 {/* <span><Link className="loginLink" to="/login">로그인</Link></span>
                 <div className="verticalLine"><Link className="loginLink" to="/register">회원가입</Link></div> */}
               </div>
