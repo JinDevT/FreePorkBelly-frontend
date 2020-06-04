@@ -85,6 +85,7 @@ componentDidMount(){
                                         name={product.name}
                                         salesPrice={product.sales_price_comment}
                                         unitPrice={product.unit_price_comment}
+                                        productId={product.product_id}
                                     />
                                 );
                             })
