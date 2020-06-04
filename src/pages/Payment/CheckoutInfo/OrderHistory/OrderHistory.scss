@@ -3,39 +3,6 @@
 .OrderHistory {
     .historyList {
         padding: 30px 50px;
-        li {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px 0;
-            border-bottom: 1px solid $grey;
-            line-height: 1.4;
-            .listName {
-                display: flex;
-                align-items: center;
-                span:last-child {
-                    padding: 0 10px;
-                    font-size: $font14;
-                    font-weight: 700;
-                    color: $darkGrey;
-                }
-            }
-            .listPurpose {
-                span {
-                    color: #555555;
-                }
-            }
-            .listNumber {
-                span {
-                    font-weight: 700;
-                }
-            }
-            .listPrice {
-                span {
-                    color: #555555;
-                }
-            }
-        }
     }
     .historyPrice {
         display: flex;
