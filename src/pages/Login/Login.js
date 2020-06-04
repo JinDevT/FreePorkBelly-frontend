@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from "../../components/Header/Header";
 import Footer from '../../../src/components/Footer/Footer';
-
+import { API } from '../../../src/config';
 import './Login.scss';
 
 class Login extends Component {
@@ -11,7 +11,14 @@ class Login extends Component {
         loginById: "",
         loginByPw: "",
         btState: true,
+        stage: true,
     };
+
+    handleChange = () => {
+        this.setState({
+            stage: false,
+        });
+    }
 
     typeId = (e) => {
         this.setState({
@@ -28,8 +35,7 @@ class Login extends Component {
     clickEvent = () => {
         console.log(this.state.loginById);
         console.log(this.state.loginByPw);
-//"http://10.58.0.24:8000/customer/signin"
-        fetch("http://10.58.4.74:8000/customer/signin", {
+        fetch(`${API}/customer/signin`, {
             method: "POST",
             body: JSON.stringify({
                 'email' : this.state.loginById,
@@ -42,6 +48,8 @@ class Login extends Component {
                 console.log(response);
                 localStorage.setItem("wtw-token", response.token);
                 this.props.history.push("/index");
+                console.log("stage value: ", this.state.stage);
+                // console.log("response token :", reponse);
             } else if (!response.token) {
                 alert("로그인 오류");
             }
