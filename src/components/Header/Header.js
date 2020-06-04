@@ -85,11 +85,13 @@ class Header extends Component {
                   {/* <div className="meatCount">
                     <div className="meatNumber">0</div>
                   </div> */}
-                  <div className="cart">
+                  <div> 
+                    <Link className="cart" to="/cart">
                     <img
                       className="cart"
                       src="https://www.jeongyookgak.com/assets/gnb_cart_default.svg"
                     />
+                    </Link>
                   </div>
                   <div className="menu">
                     <img

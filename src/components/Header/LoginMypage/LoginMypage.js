@@ -7,9 +7,10 @@ class LoginMypage extends Component {
     render() {
       return (
         <div className="LoginMypage">
-            <div className="verticalLine"></div>
-            <div>
-            <Link className="loginLink" to="/register">마이페이지</Link>
+            <div className="verticalLine">
+            </div>
+            <div className="loginLink"> 
+             마이페이지
             </div>
         </div>
         );
