@@ -1,5 +1,9 @@
 @import "../../../styles/common.scss";
 
+.not_scroll {
+    overflow: hidden;
+}
+
 .ReviewCmt {
     max-width: 1055px;
     margin: 0 auto;
