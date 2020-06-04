@@ -3,11 +3,13 @@ import ProductImages from "../List/ProductImages/ProductImages";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { API } from '../../config';
+import ListPageImg from './ListPageImg/ListPageImg';
 import './List.scss';
 
 class List extends Component {
     state = {
-        productList: []
+        productList: [],
+        listPageImg: []
     }
 
     componentDidMount(){
@@ -22,25 +24,30 @@ class List extends Component {
 
     getData = () => {
         const queryId = this.props.location.search;
-        console.log("query ID: ", queryId);
+        // console.log("query ID: ", queryId);
 
         fetch(`${API}/product${queryId}`)
         .then(response => response.json())
         // .then(res => console.log(res.products_info))
         .then(response => this.setState({
-            productList: response.products_info
-        }));
+            productList: response.products_info,
+            listPageImg: response.category_info
+        }
+        // , () => {console.log("listPageImage : ", response.category_info.image_url)}
+        ));
     }
 
     render() {
         const { productList } = this.state;
-        // console.log("render: ", productList.products_info);
-        console.log("productList: ", this.state.productList);
+        const { listPageImg } = this.state;
+    
         return (
             <>
                 <Header />
                     <div>
-                        <img className="bestFresh" src="https://www.jeongyookgak.com/assets/list/01.png"/>
+                        <ListPageImg 
+                            ListPageUrl={listPageImg.image_url}
+                        />
                     </div>
                     <div className="menu">
                         <div className="all" onClick={() => this.props.history.push("/list")}>전체보기</div>

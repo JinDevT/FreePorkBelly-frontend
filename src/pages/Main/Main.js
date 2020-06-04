@@ -15,8 +15,6 @@ class Main extends Component {
     productList: []
 }
 
-
-
 componentDidMount(){
     fetch(`${API}/product/main`, {
         method: "GET", 
@@ -36,11 +34,9 @@ componentDidMount(){
     console.log("productList: ", this.state.productList)
 
 
-
     return (
       <div>
         <Header />
-        
         <main className="main">
           <div className="mainPagePork">
             <img
