@@ -45,7 +45,7 @@ class Login extends Component {
         .then((response) => {
             if (response.token) {
                 console.log(response);
-                localStorage.setItem("wtw-token", response.token);
+                localStorage.setItem("access_token", response.token);
                 this.props.history.push("/index");
                 
             } else if (!response.token) {
