@@ -1,91 +1,137 @@
 import React, { Component } from 'react';
+import { API } from '../../config.js';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import CartLeft from './CartLeft/CartLeft';
 import CartRight from './CartRight/CartRight';
 import './Cart.scss';
+
 class Cart extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            allPrice : 15200,
-            products : [
-                {
-                    id: 0,
-                    img: "https://www.jeongyookgak.com/assets/thumbnail/newcart/porkleg-fresh.jpg",
-                    name: "초신선 돼지 앞다리",
-                    purpose: "제육욕",
-                    standard: "100g 기준",
-                    number: 1,
-                    price: 8700
-                },
-                {
-                    id: 1,
-                    img: "https://www.jeongyookgak.com/assets/thumbnail/newcart/milk-fresh.jpg",
-                    name: "우유",
-                    purpose: "이유식",
-                    standard: "100ml 기준",
-                    number: 3,
-                    price: 3200
-                }
-            ]
+            cartList: [],
+            cartQuantity: "",
+            addPrice: 0
         }
     }
+    
+    componentDidMount() {
+        localStorage.setItem("access_token", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lcl9pZCI6NH0.xeQ7_gfDUiKnLVqnIfCtPbyBQ7i7x8m-2xRDHEAGdmM")
+        const token = localStorage.getItem("access_token");
+        console.log(token)
+        fetch(`${API}/order/cart` , {
+            method: "GET",
+            headers: {
+                "Content-type": "application/json",
+                "Authorization" : token
+            },
+        })
+        .then(res => res.json())
+        .then(res => this.setState({
+            cartList : res.cart_items,
+            addPrice : res.cart[0]["total_amount"]
+        }))
+    }
 
-    handleDecrease = (id) => {
-        const { products } = this.state;
-        console.log("Cart에 넘어온 감소버튼 name: ", products[id].number);
-        if(products[id].number === 1) { 
-            return;
-        } else if(products[id].number > 1) {
-            this.setState({
-                number: products[id].number - 1,
-            }, () => this.calc())
-        }
+    // 총 상품금액 함수
+    getData = () => {
+        const token = localStorage.getItem("access_token");
+        fetch(`${API}/order/cart`, {
+            method: "GET",
+            headers: {
+                "Content-type": "application/json",
+                "Authorization" : token
+            },
+        })
+        .then(res => res.json())
+        .then(res => this.setState({
+            addPrice : res.cart[0]["total_amount"],
+        }))
+    }
+
+    handleDecrease = (list) => {
+        const token = localStorage.getItem("access_token");
+        const { cartList } = this.state;
+        const listCart = [...cartList];
+        const i = listCart.indexOf(list);
+        cartList[i] = {...list, quantity: --list.quantity};
+        fetch(`${API}/order/cart`, {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json",
+                "Authorization" : token
+            },
+            body : JSON.stringify({
+                product_id: cartList[i].product_id,
+                quantity : cartList[i].quantity
+            })
+        })
+        .then(res => {
+            if (res.status === 200) {
+                this.getData();
+            }
+        })
+        this.setState({
+            cartList
+        })
     };
     
-    // 스프레드 오퍼레이터 ...
-    handleIncrease = id => {
-        const { products } = this.state;
-        const find = products.find(product => product.id === id)
-        console.log(find)
-        this.setState({
-            number : find.number + 1
+    handleIncrease = (list) => {
+        const token = localStorage.getItem("access_token");
+        const { cartList } = this.state;
+        const listCart = [...cartList];
+        const i = listCart.indexOf(list);
+        cartList[i] = {...list, quantity: ++list.quantity}
+        fetch(`${API}/order/cart`, {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json",
+                "Authorization" : token
+            },
+            body : JSON.stringify({
+                product_id: cartList[i].product_id,
+                quantity : cartList[i].quantity
+            })
         })
-
-        // this.setState({
-        //     number: products[id].number + 1,
-        // }, () => this.calc(id));
-       
-        // this.setState({
-        //     ...this.state,
-        //     number: products.push(
-        //       products[id].number + 1,
-        //     )
-        
-        // }, () => console.log("setState: ", this.state.products[id].number))
-
-        this.setState({
-            
+        .then(res => {
+            if (res.status === 200) {
+                this.getData();
+            }
         })
-    }
-
-    handleRemove = id => {
-        const { products } = this.state;
         this.setState({
-            products: products.filter(product => product.id !== id)
+            cartList
         })
     }
 
-    calc = (id) => {
-        const { number, products } = this.state;
+    handleRemove = list => {
+        const token = localStorage.getItem("access_token");
+        const { cartList } = this.state;
+        const listCart = [...cartList];
+        const i = listCart.indexOf(list);
+        cartList[i] = {...list}
+        fetch(`${API}/order/cart` , {
+            method: "DELETE",
+            headers: {
+                "Content-type": "application/json",
+                "Authorization" : token
+            },
+            body : JSON.stringify({
+                product_id: cartList[i].product_id,
+            })
+        })
+        .then(res => {
+            if(res.status === 200) {
+                this.getData();
+            }
+        })
         this.setState({
-            allPrice : products[id].price * number
-        }, () => console.log("calc :", this.state.allPrice));
+            cartList: cartList.filter(cartList => cartList.product_id !== list.product_id)
+        })
     }
-
+  
     render() {
-        const { number, products, allPrice } = this.state;
+        const {  cartList, cartQuantity } = this.state;
         return (
             <div className="Cart">
                 <Header />
@@ -98,10 +144,10 @@ class Cart extends Component {
                             onIncrease={this.handleIncrease}  
                             onDecrease={this.handleDecrease} 
                             onRemove={this.handleRemove}
-                            number={number}
-                            products={products}
+                            cartList={cartList}
+                            cartQuantity={cartQuantity}
                         />
-                        <CartRight allPrice={allPrice} />
+                        <CartRight totalPrice={this.state.addPrice}/>
                     </div>
                 </div>
                 <Footer />

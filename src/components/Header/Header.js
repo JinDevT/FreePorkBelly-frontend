@@ -4,17 +4,46 @@ import FixedHeader from "./FixedHeader/FixedHeader";
 import "./Header.scss";
 
 class Header extends Component {
+
+  state = {
+      isVisible: false
+    };
+
+  componentDidMount() {
+    var scrollComponent = this;
+    document.addEventListener("scroll", function(e) {
+      scrollComponent.toggleVisibility();
+    });
+  }
+
+  toggleVisibility() {
+    if (window.pageYOffset > 200) { 
+      console.log("more", window.pageYOffset);
+      this.setState({
+        isVisible: true
+      });
+    } else if(window.pageYOffset <= 300) {
+      console.log("less", window.pageYOffset);
+      this.setState({
+        isVisible: false
+      });
+    }
+  }
+
+
   render() {
+    const { isVisible } = this.state;
     return (
       <>
       <div className="Header">
         <div className="narrowHeader">
-          <div className="logoContainer">
+          <div> <Link className="logoContainer" to="/index">
             <img
               className="logo "
               src="https://scontent-gmp1-1.xx.fbcdn.net/v/t1.0-9/27971891_1586342984754102_629951959264227627_n.png?_nc_cat=101&_nc_sid=174925&_nc_oc=AQks1felCd6B-Dq8VXHVpUcmogMZN-dVaRc4jKKLzi1CCCvEV6Nfijr2DMlrIkn-Y6s&_nc_ht=scontent-gmp1-1.xx&oh=9c3b5f8738bb0ec8efa1ce2c639c35ca&oe=5EF1BB09"
             />
             <span className="jyk">정육각</span>
+            </Link>
           </div>
           <div className="navContainer">
               <div className="loginBar">
@@ -53,6 +82,10 @@ class Header extends Component {
           </div>
       </div>
       
+      <div className="FixedHeader">          
+      { isVisible ? <FixedHeader/> : null} 
+      {/* { isVisible } <FixedHeader />  */}
+      </div> 
       </>
     );
   }
