@@ -1,53 +1,37 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './CartList.scss'
-
 class CartList extends Component {
-   
-    handleIncrease = () => {
-        const { onIncrease } = this.props;
-    
-        onIncrease();
-    }
-
-    handleDecrease = () => {
-        const { onDecrease } = this.props;
-        onDecrease();
-    }
-
-    handleRemove = () => {
-        const { id, onRemove } = this.props;
-        onRemove(id);
-    }
-
     render() {
-        const { number, price} = this.props;
-        console.log("cartList num: ", number)
+        const { cartList, onIncrease, onDecrease, onRemove } = this.props;
+       
         return (
             <>
                 <li className="CartList">
                     <div className="productList productDet">
                         <Link to=""className="productImg">
-                            <img src="https://www.jeongyookgak.com/assets/thumbnail/newcart/porkleg-fresh.jpg" alt="cartProductImg" />
+                            <img src={cartList.sub_img_url} alt="cartProductImg" />
                         </Link>
                         <Link to="" className="productInfo">
-                            <p className="productName">초신선 돼지 앞다리</p>
-                            <p className="productPurpose">제육용</p>
+                            <p className="productName">{cartList.name}</p>
+                            <p className="productPurpose">{cartList.selected_option}</p>
                         </Link>
                     </div>
                     <div className="productList productNum">
-                        <span className="standard">100g 기준</span>
+                        <span className="standard">{cartList.per_quantity}</span>
                         <div className="numberBtn">
-                            <button typee="button" onClick={this.handleDecrease}>-</button>
-                            <span className="number">{number}</span>
-                            <button type="button" onClick={() => {this.handleIncrease(number)}}>+</button>
+                            <button typee="button" onClick={() => onDecrease(cartList)}>-</button>
+                            <span className="number">
+                                {cartList.quantity}
+                            </span>
+                            <button type="button" onClick={() => onIncrease(cartList)}>+</button>
                         </div>
                     </div>
                     <div className="productList productPre">
-                       {price * number}원
+                       {cartList.sales_price * cartList.quantity}원
                     </div>
                     <div className="productList productDel">
-                        <button type="button" onClick={this.handleRemove}>x</button>
+                        <button type="button" onClick={() => onRemove(cartList)}>x</button>
                     </div>
                 </li>
             </>
