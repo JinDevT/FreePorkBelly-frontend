@@ -4,7 +4,35 @@ import FixedHeader from "./FixedHeader/FixedHeader";
 import "./Header.scss";
 
 class Header extends Component {
+
+  state = {
+      isVisible: false
+    };
+
+  componentDidMount() {
+    var scrollComponent = this;
+    document.addEventListener("scroll", function(e) {
+      scrollComponent.toggleVisibility();
+    });
+  }
+
+  toggleVisibility() {
+    if (window.pageYOffset > 200) { 
+      // console.log("more", window.pageYOffset);
+      this.setState({
+        isVisible: true
+      });
+    } else if(window.pageYOffset <= 200) {
+      // console.log("less", window.pageYOffset);
+      this.setState({
+        isVisible: false
+      });
+    }
+  }
+
+
   render() {
+    const { isVisible } = this.state;
     return (
       <>
       <div className="Header">
@@ -54,6 +82,9 @@ class Header extends Component {
           </div>
       </div>
       
+      <div className="FixedHeader">          
+      { isVisible ? <FixedHeader/> : null} 
+      </div> 
       </>
     );
   }

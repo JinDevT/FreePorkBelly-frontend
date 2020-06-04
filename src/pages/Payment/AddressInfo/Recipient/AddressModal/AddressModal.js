@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DaumPostCode from 'react-daum-postcode';
+import { API } from '../../../../../../src/config.js'
 import './AddressModal.scss'
 
 class AddressModal extends Component {
@@ -13,13 +14,14 @@ class AddressModal extends Component {
             fullAddress : "",
             isDaumPost : false,
             isRegister : false,
-            register: []
+            register: [],
         }
     }
 
+
     buttonChange = () => {
         const { name, phone, address, fullAddress } = this.state;
-        if(name) {
+        if(name && phone && address && fullAddress) {
             this.setState({
                 isRegister : true
             })
@@ -29,7 +31,7 @@ class AddressModal extends Component {
     handleInput = (e) => {
         this.setState({
             [e.target.name] : e.target.value
-        })
+        }, () => this.buttonChange())
     }
 
     handleOpenPost = () => {
@@ -38,19 +40,35 @@ class AddressModal extends Component {
         })
     }
 
-    // 등록 버튼 클릭 시
     handleRegister = () => {
         const { name, phone, address, fullAddress, register } = this.state;
-        console.log("handleRegister: ", name);
-        console.log("handleRegister: ", phone);
-        console.log("handleRegister: ", address);
-        console.log("handleRegister: ", fullAddress);
-   
-        const newRegiste = register.push({ name, phone, address, fullAddress});
-        this.setState({
-            register : newRegiste
-        }, () => this.buttonChange());
-
+        let userAddress = fullAddress + address
+        const newRegiste = register.concat({ name, phone, userAddress});
+        fetch(`${API}/order/address`, {
+            method: "POST",
+            headers : {
+                "Content-type" : "application/json",
+                "Authorization" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lcl9pZCI6MX0.ibPkQgVjNLXv3uLogTIOdjK9A87qVm62YGyhDUJIKm8"
+            },
+            body : JSON.stringify({
+                name: name,
+                phone: phone,
+                address: userAddress
+            })
+        })
+        .then(res => {
+            if(res.status === 200) {
+                this.setState({
+                    register : newRegiste,
+                    name: "",
+                    phone: "",
+                    zoneCode: "",
+                    fullAddress: "",
+                    address: "",
+                }, () => this.props.isModalClose())
+            }
+        })
+       
     }
 
     // postcode
@@ -76,8 +94,8 @@ class AddressModal extends Component {
 
     render() {
         const { isModalShow, isModalClose } = this.props;
-        const { name, phone, address, isDaumPost, fullAddress, zoneCode, isRegister} = this.state;
-        
+        const { name, phone, address, isDaumPost, fullAddress, zoneCode, isRegister } = this.state;
+
         // DaumPostCode style
         const width = 595;
         const height = 450;
@@ -89,7 +107,6 @@ class AddressModal extends Component {
             border: "1px solid #000000",
             overflow: "hidden"
         }
-     
         return (
             <>
                 {
@@ -138,7 +155,6 @@ class AddressModal extends Component {
                                                     width={width}
                                                     height={height}
                                                     style={modalStyle}
-                                                   
                                                     isDaumPost={isDaumPost}
                                             />
                                             : null
