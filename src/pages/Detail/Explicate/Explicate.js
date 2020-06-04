@@ -8,7 +8,7 @@ class Explicate extends Component {
         }
     }
     componentDidMount() {
-        fetch("http://10.58.4.231:8000/product/detail/1",  {
+        fetch("http://10.58.4.74:8000/product/detail/1",  {
             method: "GET",
             headers: {
                 "Content-type": "application/json",
