@@ -8,7 +8,8 @@ import "./Header.scss";
 class Header extends Component {
 
   state = {
-      isVisible: false
+      isVisible: false,
+      stage: true
     };
 
   componentDidMount() {
@@ -36,6 +37,7 @@ class Header extends Component {
 
   render() {
     const { isVisible } = this.state;
+    const { stage } = this.state;
     return (
       <>
       <div className="Header">
@@ -53,7 +55,7 @@ class Header extends Component {
                 <span>이벤트</span>
                 <span>공지사항</span>
                 <span>이용가이드</span>
-                <LoginRegister />
+                  { stage ? <LoginRegister /> : <LoginMypage /> }
                 {/* <span><Link className="loginLink" to="/login">로그인</Link></span>
                 <div className="verticalLine"><Link className="loginLink" to="/register">회원가입</Link></div> */}
               </div>
