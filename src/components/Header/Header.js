@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Route, Link } from 'react-router-dom';
 import FixedHeader from "./FixedHeader/FixedHeader";
+import LoginRegister from "./LoginRegister/LoginRegister";
+import LoginMypage from "./LoginMypage/LoginMypage";
 import "./Header.scss";
 
 class Header extends Component {
@@ -15,6 +17,7 @@ class Header extends Component {
       scrollComponent.toggleVisibility();
     });
   }
+
 
   toggleVisibility() {
     if (window.pageYOffset > 200) { 
@@ -50,8 +53,9 @@ class Header extends Component {
                 <span>이벤트</span>
                 <span>공지사항</span>
                 <span>이용가이드</span>
-                <span><Link className="loginLink" to="/login">로그인</Link></span>
-                <div className="verticalLine"><Link className="loginLink" to="/register">회원가입</Link></div>
+                <LoginMypage />
+                {/* <span><Link className="loginLink" to="/login">로그인</Link></span>
+                <div className="verticalLine"><Link className="loginLink" to="/register">회원가입</Link></div> */}
               </div>
               <nav className="navigation">
                 <div className="navList">
@@ -64,13 +68,13 @@ class Header extends Component {
                   {/* <div className="meatCount">
                     <div className="meatNumber">0</div>
                   </div> */}
-                  <div>
+                  <div className="cart">
                     <img
                       className="cart"
                       src="https://www.jeongyookgak.com/assets/gnb_cart_default.svg"
                     />
                   </div>
-                  <div>
+                  <div className="menu">
                     <img
                       className="menu"
                       src="https://www.jeongyookgak.com/assets/gnb_menu.svg"
