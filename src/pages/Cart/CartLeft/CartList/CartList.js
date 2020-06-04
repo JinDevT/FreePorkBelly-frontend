@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './CartList.scss'
-
 class CartList extends Component {
-    handleRemove = () => {
-        const { id, onRemove } = this.props;
-        onRemove(id);
-    }
-
     render() {
         const { cartList, onIncrease, onDecrease, onRemove } = this.props;
+       
         return (
             <>
                 <li className="CartList">

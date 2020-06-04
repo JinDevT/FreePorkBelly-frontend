@@ -4,7 +4,7 @@ import './CartLeft.scss';
 
 class CartLeft extends Component {
     render() {
-        const { onIncrease, onDecrease, onRemove, cartList, cartQuantity, cartPrice } = this.props;
+        const { onIncrease, onDecrease, onRemove, cartList } = this.props;
         return (
             <div className="CartLeft">
                 <div className="leftHead">
@@ -19,7 +19,6 @@ class CartLeft extends Component {
                                 <CartList 
                                     key={list.product_id}
                                     cartList={list}
-                                    cartQuantity={cartQuantity}
                                     onIncrease={onIncrease} 
                                     onDecrease={onDecrease}
                                     onRemove={onRemove}
@@ -27,7 +26,6 @@ class CartLeft extends Component {
                             )
                         })
                     }
-                    
                 </ul>
             </div>
         );

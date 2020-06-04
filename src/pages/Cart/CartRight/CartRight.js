@@ -1,52 +1,16 @@
 import React, { Component } from 'react';
 import './CartRight.scss';
+
 class CartRight extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            addPrice : []
-        }
-    }
-
-    componentDidMount() {
-        fetch("http://10.58.2.176:8000/order/cart" , {
-            method: "GET",
-            headers: {
-                "Content-type": "application/json",
-                "Authorization" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lcl9pZCI6MX0.ibPkQgVjNLXv3uLogTIOdjK9A87qVm62YGyhDUJIKm8"
-            },
-        })
-        .then(res => res.json())
-        .then(res => this.setState({
-            addPrice : res.cart[0]["total_amount"],
-        }, () => console.log(this.state.addPrice)))
-    }
-
-    componentDidUpdate() {
-        fetch("http://10.58.2.176:8000/order/cart" , {
-            method: "GET",
-            headers: {
-                "Content-type": "application/json",
-                "Authorization" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lcl9pZCI6MX0.ibPkQgVjNLXv3uLogTIOdjK9A87qVm62YGyhDUJIKm8"
-            },
-        })
-        .then(res => res.json())
-        .then(res => this.setState({
-            addPrice : res.cart[0]["total_amount"],
-        }, () => console.log(this.state.addPrice)))
-    }
-
     render() {
-        const { addPrice } = this.state;
-        // addPrice && addPrice.substring(addPrice.length, addPrice-3);
-        // console.log(addPrice)
+        const { totalPrice } = this.props;
         return (
             <div className="CartRight">
                 <div className="rightInner">
                     <div className="priceBox">
                         <div className="rightFlex">
                             <span>총 상품 금액</span>
-                            <span>{addPrice}원</span>
+                            <span>{parseInt(totalPrice).toLocaleString()}원</span>
                         </div>
                     </div>
                     <div className="deliverBox">
@@ -71,7 +35,7 @@ class CartRight extends Component {
                             <span>예상 결제 금액</span>
                         </div>
                         <div className="rightFlex justifyBox allPrice">   
-                            <span>{addPrice}원</span>
+                            <span>{parseInt(totalPrice).toLocaleString()}원</span>
                         </div>
                     </div>
                     <div className="buttonBox">
