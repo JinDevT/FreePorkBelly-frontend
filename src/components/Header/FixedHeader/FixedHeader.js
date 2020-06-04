@@ -12,6 +12,7 @@ class FixedHeader extends Component {
                 <img
                   alt="logo"
                   src="https://www.jeongyookgak.com/assets/submenu_logo.svg"
+                  alt="logo_icon"
                 />
               </div>
               <div className="navContainer1">
@@ -30,12 +31,14 @@ class FixedHeader extends Component {
                       <img
                         alt="cart"
                         src="https://www.jeongyookgak.com/assets/2-1.svg"
+                        alt="cart_icon"
                       />
                     </div>
                     <div>
                       <img
                         alt="menu"
                         src="https://www.jeongyookgak.com/assets/2-2.svg"
+                        alt="menu_icon"
                       />
                     </div>
                   </div>

@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { Route, Link } from 'react-router-dom';
 import "./LoginMypage.scss";
-
 
 class LoginMypage extends Component {
     render() {
+      // console.log(this.props.logoutHandler)
       return (
         <div className="LoginMypage">
-            <div className="verticalLine">
+            <div onClick={this.props.logoutHandler}>로그아웃</div>
+            <div className="verticalLine" >
             </div>
             <div className="loginLink"> 
              마이페이지
@@ -17,4 +17,4 @@ class LoginMypage extends Component {
     }
   }
 
-  export default LoginMypage;
+export default LoginMypage;
