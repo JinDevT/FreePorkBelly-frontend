@@ -1,1 +1,24 @@
-// component scss
+@import "../../styles/common.scss";
+
+.bestFresh {
+    border-bottom: 1px solid $grey;
+}
+.menu {
+    width: 900px;
+    margin: 50px auto 0px auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    font-size: $font18;
+    font-weight: 700;
+    cursor: pointer;
+}
+.showRoom {
+    width: 1200px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    
+}

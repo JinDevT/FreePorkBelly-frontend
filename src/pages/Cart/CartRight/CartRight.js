@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import './CartRight.scss';
+
 class CartRight extends Component {
     render() {
-        const { allPrice } = this.props;
+        const { totalPrice } = this.props;
         return (
             <div className="CartRight">
                 <div className="rightInner">
                     <div className="priceBox">
                         <div className="rightFlex">
                             <span>총 상품 금액</span>
-                            <span>{allPrice}원</span>
+                            <span>{parseInt(totalPrice).toLocaleString()}원</span>
                         </div>
                     </div>
                     <div className="deliverBox">
@@ -34,7 +35,7 @@ class CartRight extends Component {
                             <span>예상 결제 금액</span>
                         </div>
                         <div className="rightFlex justifyBox allPrice">   
-                            <span>{allPrice}원</span>
+                            <span>{parseInt(totalPrice).toLocaleString()}원</span>
                         </div>
                     </div>
                     <div className="buttonBox">
