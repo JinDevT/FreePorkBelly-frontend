@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './CartRight.scss';
 
 class CartRight extends Component {
+
+    handleGoPayment = () => {
+        this.props.history.push("/payment");
+    }
+
+    handleGoList = () => {
+        this.props.history.push("/list")
+    }
+
     render() {
         const { totalPrice } = this.props;
         return (
@@ -40,12 +50,12 @@ class CartRight extends Component {
                     </div>
                     <div className="buttonBox">
                         <div className="btnWrap">
-                            <button type="button" className="orderBtn">
+                            <button type="button" className="orderBtn" onClick={this.handleGoPayment}>
                                 <span>전체상품 주문하기</span>
                             </button>
                         </div>
                         <div className="btnWrap">
-                            <button type="button" className="shoppingBtn">
+                            <button type="button" className="shoppingBtn" onClick={this.handleGoList}>
                                 <span>쇼핑계속하기</span>
                             </button>
                         </div>
@@ -56,4 +66,4 @@ class CartRight extends Component {
     }
 }   
 
-export default CartRight;
+export default withRouter(CartRight);
