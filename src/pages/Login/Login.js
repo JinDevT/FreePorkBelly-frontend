@@ -29,7 +29,7 @@ class Login extends Component {
         console.log(this.state.loginById);
         console.log(this.state.loginByPw);
 //"http://10.58.0.24:8000/customer/signin"
-        fetch("http://10.58.4.74:8000/customer/signin", {
+        fetch("http://10.58.5.193:8000/customer/signin", {
             method: "POST",
             body: JSON.stringify({
                 'email' : this.state.loginById,
@@ -40,7 +40,7 @@ class Login extends Component {
         .then((response) => {
             if (response.token) {
                 console.log(response);
-                localStorage.setItem("wtw-token", response.token);
+                localStorage.setItem("access_token", response.token);
                 this.props.history.push("/index");
             } else if (!response.token) {
                 alert("로그인 오류");

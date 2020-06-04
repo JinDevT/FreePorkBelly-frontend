@@ -17,6 +17,21 @@ class Header extends Component {
     document.addEventListener("scroll", function(e) {
       scrollComponent.toggleVisibility();
     });
+    
+    const token = localStorage.getItem("access_token");
+    console.log(token);
+    
+    if (token) {
+      console.log("token 존재")
+      this.setState({
+        stage : false
+      })
+    } else {
+      console.log("token not")
+      this.setState({
+        stage: true
+      })
+    }
   }
 
 
