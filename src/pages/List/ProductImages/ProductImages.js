@@ -12,6 +12,12 @@ class ProductImages extends Component {
       productList: []
     }
 
+    scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
 
     clickHandler = () => {
         const queryProductId = this.props.productId;
@@ -22,7 +28,7 @@ class ProductImages extends Component {
   render() {
     const { imgUrl, name, salesPrice, unitPrice, productId } = this.props;
     return (
-      <div className="bestProductImages">
+      <div className="bestProductImages" onClick={this.scrollToTop}>
         <div className="productImageContainer" onClick={this.clickHandler}>
        
           <img
