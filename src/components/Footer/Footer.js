@@ -2,9 +2,15 @@ import React, { Component } from 'react';
 import './Footer.scss';
 
 class Footer extends Component {
+
+    scrollToTop = event => {
+        document.getElementById("root").scrollTo(0, 0);
+    };
+
     render() {
         return (
         <>
+        
             <div className="footerVeryTop">
                 <div className="Footer">        
                     <div className="footerTop">
@@ -35,7 +41,7 @@ class Footer extends Component {
                             <p className="lunchTime">(점심시간: 12시30분-1시30분)</p>
                         </div>
                     </div>
-                </div>
+                </div>                
             </div>
         </>
         );
