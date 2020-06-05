@@ -8,15 +8,20 @@
     max-width: 1055px;
     margin: 0 auto;
     .contents {
-        &:hover {
-            cursor: pointer;
-            border: 1px solid $black;
-        }
+       
         margin: 20px 0 30px;
-        border: 1px solid $grey;
         .inner {
             position: relative;
             padding: 20px;
+            .revBox {
+                margin: 20px 0;
+                padding: 20px;
+                border: 1px solid $grey;
+                &:hover {
+                    cursor: pointer;
+                    border: 1px solid $black;
+                }
+            }
             .contentTit {
                 margin: 10px 0;
                 font-size: $font18;

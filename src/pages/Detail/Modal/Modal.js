@@ -12,8 +12,8 @@ class Modal extends Component {
                         <div className="modal">
                             <div className="contentUser">
                                 <div className="userInfo">
-                                    <span className="userId">아이디</span>
-                                    <span className="buyNum">몇회구매</span>
+                                    <span className="userId">wecode</span>
+                                    <span className="buyNum">10회</span>
                                 </div>
                                 <div className="userDate">
                                     <span className="buyDate">구매날짜</span>
