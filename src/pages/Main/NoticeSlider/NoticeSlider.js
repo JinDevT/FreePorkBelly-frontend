@@ -28,7 +28,6 @@ export default class NoticeSlider extends Component {
       autoplay: true,
       autoplaySpeed: 2000,
       vertical: true,
-      
     };
     return (
       <div className="NoticeSlider">

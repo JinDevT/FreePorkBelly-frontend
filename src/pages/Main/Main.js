@@ -15,7 +15,12 @@ class Main extends Component {
     productList: []
 }
 
-
+scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
 
 componentDidMount(){
     fetch(`${API}/product/main`, {
@@ -36,11 +41,13 @@ componentDidMount(){
     console.log("productList: ", this.state.productList)
 
 
-
+<<<<<<< HEAD
+  
+=======
+>>>>>>> master
     return (
       <div>
         <Header />
-        
         <main className="main">
           <div className="mainPagePork">
             <img
@@ -80,6 +87,7 @@ componentDidMount(){
                                         name={product.name}
                                         salesPrice={product.sales_price_comment}
                                         unitPrice={product.unit_price_comment}
+                                        productId={product.product_id}
                                     />
                                 );
                             })
@@ -87,7 +95,7 @@ componentDidMount(){
           </div>
           <div className="goShop">
             <Link className="goShopping" to="/list">
-              <button className="goShopping">쇼핑하러 가기</button>
+              <button className="goShopping" onClick={this.scrollToTop}>쇼핑하러 가기</button>
             </Link>
           </div>
         </main>

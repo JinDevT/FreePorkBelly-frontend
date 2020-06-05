@@ -17,7 +17,7 @@ class Cart extends Component {
     }
     
     componentDidMount() {
-        localStorage.setItem("access_token", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lcl9pZCI6NH0.xeQ7_gfDUiKnLVqnIfCtPbyBQ7i7x8m-2xRDHEAGdmM")
+        localStorage.setItem("access_token", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lcl9pZCI6OX0.FfOcmHfD1eYobVgH8qWmfnucZQwkjsOs0KxlAxNO6so")
         const token = localStorage.getItem("access_token");
         console.log(token)
         fetch(`${API}/order/cart` , {
