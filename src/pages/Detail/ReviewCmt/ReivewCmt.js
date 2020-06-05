@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+
 import Modal from '../Modal/Modal';
 import './ReviewCmt.scss';
 
@@ -7,8 +9,25 @@ class ReviewCmt extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isModalShow: false
+            isModalShow: false,
+            reviewList: []
         }
+    }
+
+    componentDidMount() {
+        const API = "http://10.58.0.24:8000";
+        const token = localStorage.getItem("access_token");
+        fetch(`${API}/product/review/${this.props.match.params.id}`,  {
+            method: "GET",
+            headers: {
+                "Content-type": "application/json",
+                "Authorization" : token
+            },
+        })
+        .then(res => res.json())
+        .then(res => this.setState({
+            reviewList : res.review
+        })).catch(err => console.log("err: ", err));
     }
 
     // open modal
@@ -28,95 +47,51 @@ class ReviewCmt extends Component {
     }
 
     render() {
+        const { reviewList } = this.state;
+        console.log("review: ", reviewList );
         return (
             <>
                 <div className="ReviewCmt" onClick={this.openModal}>
                     <div className="contents">
                         <div className="inner">
-                            <div className="contentTit">
-                                믿고 먹는 정육각 삼겹살
-                            </div>
-                            <div className="contentSubT">
-                                <span>매번 너무 만족한다.</span>
-                            </div>
-                            <div className="contentUser">
-                                <div className="userInfo">
-                                    <span className="userId">wecode</span>
-                                    <span className="buyNum">10회구매</span>
-                                </div>
-                                <div className="userDate">
-                                    <span className="buyDate">2020.06.04</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="togetherInfo">
-                            <div className="togetherTit">
-                                <span>함께 구매하신 상품</span>
-                            </div>
-                            <div className="togetherName">
-                                <span>초신선 돼지고기</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="contents">
-                        <div className="inner">
-                            <div className="contentTit">
-                                항상 이용하고있는 사이트
-                            </div>
-                            <div className="contentSubT">
-                                <span>만족한다.</span>
-                            </div>
-                            <div className="contentUser">
-                                <div className="userInfo">
-                                    <span className="userId">jintae</span>
-                                    <span className="buyNum">1회구매</span>
-                                </div>
-                                <div className="userDate">
-                                    <span className="buyDate">2020.06.01</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="togetherInfo">
-                            <div className="togetherTit">
-                                <span>함께 구매하신 상품</span>
-                            </div>
-                            <div className="togetherName">
-                                <span></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="contents">
-                        <div className="inner">
-                            <div className="contentTit">
-                                회식은 정육각에서!!
-                            </div>
-                            <div className="contentSubT">
-                                <span>회식으로 즐겨먹고 있습니다.</span>
-                            </div>
-                            <div className="contentUser">
-                                <div className="userInfo">
-                                    <span className="userId">freeForkBelly</span>
-                                    <span className="buyNum">8회구매</span>
-                                </div>
-                                <div className="userDate">
-                                    <span className="buyDate">2020.05.07</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="togetherInfo">
-                            <div className="togetherTit">
-                                <span>함께 구매하신 상품</span>
-                            </div>
-                            <div className="togetherName">
-                                <span>등심</span>
-                            </div>
+                            {
+                                reviewList && reviewList.map((rev, index) => {
+                                    return (
+                                    <div className="revBox" key={index}>
+                                        <div className="contentTit">
+                                            {rev.title}
+                                        </div>
+                                        <div className="contentSubT">
+                                            <span>{rev.comment}</span>
+                                        </div>
+                                        <div className="contentUser">
+                                            <div className="userInfo">
+                                                <span className="userId">wecode</span>
+                                                <span className="buyNum">10회구매</span>
+                                            </div>
+                                            <div className="userDate">
+                                                <span className="buyDate">{rev.created_at}</span>
+                                            </div>
+                                        </div>
+                                        <div className="togetherInfo">
+                                            <div className="togetherTit">
+                                                <span>함께 구매하신 상품</span>
+                                            </div>
+                                            <div className="togetherName">
+                                                <span>{rev.product_name}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    );
+                                })
+                            }
                         </div>
                     </div>
                 </div>
-                <Modal isModalShow={this.state.isModalShow} isModalClose={this.closeModal} />
+                <Modal isModalShow={this.state.isModalShow} isModalClose={this.closeModal} reviewList={reviewList} />
             </>
         );
     }
 }
 
-export default ReviewCmt;
+export default withRouter(ReviewCmt);

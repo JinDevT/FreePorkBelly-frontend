@@ -40,6 +40,11 @@ componentDidMount(){
     // console.log("render:", productList.products_info)
     // console.log("productList: ", this.state.productList)
 
+<<<<<<< HEAD
+
+  
+=======
+>>>>>>> d0db8ccc567f5bb078516aadad5fe4359bb15479
     return (
       <div>
         <Header />
