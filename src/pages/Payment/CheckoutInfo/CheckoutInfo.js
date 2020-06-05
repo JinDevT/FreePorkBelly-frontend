@@ -15,7 +15,6 @@ class CheckoutInfo extends Component {
             addPrice: 0,
         }
     }
-    
     componentDidMount() {
         const token = localStorage.getItem("access_token");
         console.log(token)
@@ -34,7 +33,24 @@ class CheckoutInfo extends Component {
     }
 
     handleGoMain = () => {
-        this.props.history.push("/index")
+        const { addPrice } = this.state;
+        const token = localStorage.getItem("access_token");
+        fetch(`${API}/order/payment` , {
+            method: "POST",
+            headers : {
+                "Content-Type": "application/json",
+                "Authorization" : token
+            },
+            body : JSON.stringify({
+                "expected_amount": addPrice
+            })
+        })
+        .then(res => {
+            if (res.status === 200) {
+                this.props.history.push("/mypage")
+            } else throw Error;
+        })
+        .catch(err => console.log("err: ", err))
     }
 
     render() {
