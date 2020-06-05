@@ -1,0 +1,11 @@
+@import "../../../styles/common.scss";
+
+.scroll-to-top {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 40px;
+    .topBtnimg {
+        width: 51px;
+        height: 51px;
+    }
+}

@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './CartRight.scss';
+
 class CartRight extends Component {
+
+    handleGoPayment = () => {
+        this.props.history.push("/payment");
+    }
+
+    handleGoList = () => {
+        this.props.history.push("/list")
+    }
+
     render() {
-        const { allPrice } = this.props;
+        const { totalPrice } = this.props;
         return (
             <div className="CartRight">
                 <div className="rightInner">
                     <div className="priceBox">
                         <div className="rightFlex">
                             <span>총 상품 금액</span>
-                            <span>{allPrice}원</span>
+                            <span>{parseInt(totalPrice).toLocaleString()}원</span>
                         </div>
                     </div>
                     <div className="deliverBox">
@@ -34,17 +45,17 @@ class CartRight extends Component {
                             <span>예상 결제 금액</span>
                         </div>
                         <div className="rightFlex justifyBox allPrice">   
-                            <span>{allPrice}원</span>
+                            <span>{parseInt(totalPrice).toLocaleString()}원</span>
                         </div>
                     </div>
                     <div className="buttonBox">
                         <div className="btnWrap">
-                            <button type="button" className="orderBtn">
+                            <button type="button" className="orderBtn" onClick={this.handleGoPayment}>
                                 <span>전체상품 주문하기</span>
                             </button>
                         </div>
                         <div className="btnWrap">
-                            <button type="button" className="shoppingBtn">
+                            <button type="button" className="shoppingBtn" onClick={this.handleGoList}>
                                 <span>쇼핑계속하기</span>
                             </button>
                         </div>
@@ -55,4 +66,4 @@ class CartRight extends Component {
     }
 }   
 
-export default CartRight;
+export default withRouter(CartRight);
