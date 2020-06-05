@@ -64,7 +64,10 @@ class AddressModal extends Component {
                     zoneCode: "",
                     fullAddress: "",
                     address: "",
-                }, () => this.props.isModalClose())
+                }, () => {
+                    this.props.isModalClose();
+                    window.location.reload();
+                })
             }
         })
        
