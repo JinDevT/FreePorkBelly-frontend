@@ -41,10 +41,6 @@ componentDidMount(){
     console.log("productList: ", this.state.productList)
 
 
-<<<<<<< HEAD
-  
-=======
->>>>>>> master
     return (
       <div>
         <Header />
