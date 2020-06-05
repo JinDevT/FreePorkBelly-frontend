@@ -17,9 +17,7 @@ class Cart extends Component {
     }
     
     componentDidMount() {
-        localStorage.setItem("access_token", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lcl9pZCI6OX0.FfOcmHfD1eYobVgH8qWmfnucZQwkjsOs0KxlAxNO6so")
         const token = localStorage.getItem("access_token");
-        console.log(token)
         fetch(`${API}/order/cart` , {
             method: "GET",
             headers: {
@@ -31,7 +29,7 @@ class Cart extends Component {
         .then(res => this.setState({
             cartList : res.cart_items,
             addPrice : res.cart[0]["total_amount"]
-        }))
+        }, () => console.log("cartList: ", res.cart_items)))
     }
 
     // 총 상품금액 함수

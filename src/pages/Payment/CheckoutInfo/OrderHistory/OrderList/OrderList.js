@@ -18,7 +18,7 @@ class OrderList extends Component {
                         <span>{cartList.quantity}</span>
                     </div>
                     <div className="listPrice">
-                        <span>{cartList.sales_price}</span>
+                        <span>{parseInt(cartList.sales_price).toLocaleString()}원</span>
                     </div>
                 </li>
             </>
