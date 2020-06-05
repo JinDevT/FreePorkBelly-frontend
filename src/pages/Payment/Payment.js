@@ -9,7 +9,6 @@ class Payment extends Component {
         super(props);
         this.state = {
             stage : true,
-            currentStep : 1
         }
     }
 

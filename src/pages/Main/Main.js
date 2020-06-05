@@ -41,11 +41,13 @@ componentDidMount(){
     console.log("productList: ", this.state.productList)
 
 
+<<<<<<< HEAD
   
+=======
+>>>>>>> master
     return (
       <div>
         <Header />
-        
         <main className="main">
           <div className="mainPagePork">
             <img

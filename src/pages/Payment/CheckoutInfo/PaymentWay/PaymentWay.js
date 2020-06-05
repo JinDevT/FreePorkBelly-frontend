@@ -25,8 +25,8 @@ class PaymentWay extends Component {
                     <div className="boxModelInner">
                         <ul className="wayList">
                             <li>
-                                <input type="radio" id="cart" name="cart"/>
-                                <label for="cart">카드결제</label>
+                                <input type="checkbox" id="cart" name="cart"/>
+                                <label htmlFor="cart">카드결제</label>
                                 <div className="buttonBox">
                                     <button type="button"> 
                                         <span>결제카드 선택</span>
@@ -34,8 +34,8 @@ class PaymentWay extends Component {
                                 </div>
                             </li>
                             <li>
-                                <input type="radio" id="noCart" name="cart" onClick={this.showTooltip}/>
-                                <label for="noCart">무통장결제</label>
+                                <input type="checkbox" id="noCart" name="noCart" onClick={this.showTooltip}/>
+                                <label htmlFor="noCart">무통장결제</label>
                                 <ToolTip show={showTooltip}>
                                     <input type="radio" onClick={showTooltip}/>
                                 </ToolTip>

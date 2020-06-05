@@ -8,7 +8,6 @@ class Tooltip extends Component {
         
         return (
             <div className="ToolTip">
-                {this.props.children}
                 <div className="toolTipinner">
                     {show &&
                         <div className={`tooltip-body ${displayClass}`}>
