@@ -38,10 +38,8 @@ componentDidMount(){
   render() {
     const { productList } = this.state;
     // console.log("render:", productList.products_info)
-    console.log("productList: ", this.state.productList)
+    // console.log("productList: ", this.state.productList)
 
-
-  
     return (
       <div>
         <Header />
