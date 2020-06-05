@@ -17,7 +17,6 @@ class CheckoutInfo extends Component {
     }
     
     componentDidMount() {
-        localStorage.setItem("access_token", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lcl9pZCI6OX0.FfOcmHfD1eYobVgH8qWmfnucZQwkjsOs0KxlAxNO6so")
         const token = localStorage.getItem("access_token");
         console.log(token)
         fetch(`${API}/order/cart` , {
@@ -35,7 +34,6 @@ class CheckoutInfo extends Component {
     }
 
     handleGoMain = () => {
-        alert("주문이 완료되었습니다.")
         this.props.history.push("/index")
     }
 
