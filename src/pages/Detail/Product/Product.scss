@@ -58,8 +58,12 @@
                        margin-left: 20px;
                        border: 1px solid $white;
                        button {
+                            position: relative;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
                             height: 100%;
-                            width: 49px;
+                            width: 70px;
                             background: none;
                             border: none;
                             color: $white;
@@ -67,6 +71,18 @@
                             outline: none;
                             &:hover {
                                 cursor: pointer;
+                            }
+                            .minusBtnIcon {
+                                position: absolute;
+                                width: 22px;
+                                height: 2px;
+                                background: url("https://www.jeongyookgak.com/assets/icon_15.svg") no-repeat;
+                            }
+                            .plusBtnIcon {
+                                position: absolute;
+                                width: 20px;
+                                height: 20px;
+                                background: url("https://www.jeongyookgak.com/assets/icon_16.svg") no-repeat;
                             }
                        }
                        .number {
@@ -91,6 +107,16 @@
                            background-color: $white;
                            color: $black;
                        }
+                       .arrowIcon {
+                           position: absolute;
+                           width: 17px;
+                           height: 10px;
+                           right: 20px;
+                           background: url("https://www.jeongyookgak.com/assets/icon_12.svg") no-repeat;
+                           &.arrowTop {
+                            transform: rotate(180deg);
+                           }
+                        }
                    }
                    .seletItems {
                        position: absolute;
@@ -134,6 +160,7 @@
                         height: 100%;
                         border: none;
                         line-height: 1.4;
+                        outline: none;
                         &.buyBtn {
                             background: $darkGrey;
                         }

@@ -4,15 +4,25 @@ import "./FixedHeader.scss";
 
 
 class FixedHeader extends Component {
+
+  scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
     render() {
       return (
         <div className="FixedHeader">
           <header className="header1">
-              <div className="logoContainer1">
+              <div className="logoContainer1"><Link className="logoContainer" to="/index" onClick={this.scrollToTop}>
                 <img
                   alt="logo"
                   src="https://www.jeongyookgak.com/assets/submenu_logo.svg"
+                  alt="logo_icon"
                 />
+                </Link>
               </div>
               <div className="navContainer1">
                 <nav className="navigation1">
@@ -26,16 +36,19 @@ class FixedHeader extends Component {
                       {/* <div className="meatCount1">
                       <div className="meatNumber1">0</div>
                     </div> */}
-                    <div>
+                    <div><Link to="/cart" onClick={this.scrollToTop}>
                       <img
                         alt="cart"
                         src="https://www.jeongyookgak.com/assets/2-1.svg"
+                        alt="cart_icon"
                       />
+                      </Link>
                     </div>
                     <div>
                       <img
                         alt="menu"
                         src="https://www.jeongyookgak.com/assets/2-2.svg"
+                        alt="menu_icon"
                       />
                     </div>
                   </div>

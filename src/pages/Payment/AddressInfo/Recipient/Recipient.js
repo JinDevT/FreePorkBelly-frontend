@@ -1,25 +1,44 @@
 import React, { Component } from 'react';
-import './AddressModal/AddressModal';
-import './Recipient.scss';
 import AddressModal from './AddressModal/AddressModal';
+import { API } from '../../../../../src/config.js';
+import './Recipient.scss';
 
-
+const body = document.getElementsByTagName('body')[0];
 class Recipient extends Component {
     constructor(props) {
         super(props);
         this.state = {
             name: "",
             phone: "",
-            email: "",
-            isModalShow: false
+            address: "",
+            isModalShow: false,
         }
     }
+
+    componentDidMount() {
+            localStorage.setItem("access_token", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lcl9pZCI6OX0.FfOcmHfD1eYobVgH8qWmfnucZQwkjsOs0KxlAxNO6so")
+            const token = localStorage.getItem("access_token");
+            fetch(`${API}/order/address`, {
+                method: "GET",
+                headers : {
+                    "Content-type" : "application/json",
+                    "Authorization" : token
+                },
+            })
+            .then(res => res.json())
+            .then(res => this.setState({
+                name: res.data[0].name,
+                phone: res.data[0].phone,
+                address: res.data[0].address,
+            })).catch(err => console.log("err: ", err));
+        }
 
     // open modal
     openModal = () => {
         this.setState({ 
             isModalShow: true
         })
+        body.classList.add("not_scroll");
     }
 
     // close modal
@@ -27,9 +46,11 @@ class Recipient extends Component {
         this.setState({ 
             isModalShow: false
         })
+        body.classList.remove("not_scroll");
     }
 
     render() {
+        const { name, phone, address } = this.state;
         return (
             <div className="Recipient">
                 <div className="userTit">
@@ -45,7 +66,7 @@ class Recipient extends Component {
                         </div>
                         <div className="payTableCell">
                             <div>
-                                <span></span>
+                                <span>{name}</span>
                             </div>
                         </div>
                     </div>
@@ -54,7 +75,7 @@ class Recipient extends Component {
                             <span className="phone">전화번호</span>
                         </div>
                         <div className="payTableCell">
-                            <span></span>
+                            <span>{phone}</span>
                         </div>
                     </div>
                     <div className="payTableRow">
@@ -62,7 +83,7 @@ class Recipient extends Component {
                             <span className="email">주소</span>
                         </div>
                         <div className="payTableCell">
-                            <span></span>
+                            <span>{address}</span>
                         </div>
                     </div>
                 </div>

@@ -1,13 +1,14 @@
 @import "../../../styles/common.scss";
 
 .NoticeSlider {
-    width: 1038px;
+    width: 300px;
     height: 58px;
-    
     margin-left: 20px;
     padding-left: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+    .slick-perv {
+        color: black;
+    }
 }

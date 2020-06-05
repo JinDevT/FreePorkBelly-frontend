@@ -1,0 +1,44 @@
+@import "../../../../styles/common.scss";
+
+.OrderHistory {
+    .historyList {
+        padding: 30px 50px;
+    }
+    .historyPrice {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 30px 20px;
+        padding: 30px;
+        border: 1px solid #f7f7f7;
+        background: #f7f7f7;
+        .priceInfoWrap {
+            line-height: 1.4;
+            font-weight: 700;
+            letter-spacing: 1px;
+            p:first-child {
+                font-size: $font14;
+                color: $darkGrey;
+            }
+            p:last-child {
+                font-size: $font24;
+            }
+        }
+        .plusIcon {
+            width: 30px;
+            height: 30px;
+            background: url("https://www.jeongyookgak.com/assets/payment/pc_6.svg") no-repeat;
+        }
+        .minusIcon {
+            width: 30px;
+            height: 30px;
+            background: url("https://www.jeongyookgak.com/assets/payment/pc_5.svg") no-repeat;
+        }
+        .equalIcon {
+            width: 30px;
+            height: 30px;
+            background: url("https://www.jeongyookgak.com/assets/payment/pc_8.svg") no-repeat;
+        }
+
+    }
+}

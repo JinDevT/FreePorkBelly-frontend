@@ -37,8 +37,10 @@
         color: white;
         display: flex;
         justify-content: flex-end;
-        margin-bottom: 25px;
-        opacity: 0.5;
+        align-items: center;
+        margin-bottom: 35px;
+        opacity: 0.5;    
+        
         cursor: pointer;        
         .verticalLine {
           border-right: 1px soild white;
@@ -65,7 +67,7 @@
           font-weight: 700;
           cursor: pointer;
           :hover {
-          margin-bottom: 10px;
+          // margin-bottom: 10px;
           text-decoration: underline white;
         }
           div {
@@ -76,28 +78,24 @@
           }
         }
         .imgList {
-          width: 90px;
+          height: 10px;
           display: flex;
           justify-content: space-between;
+          flex-direction: row;
+          align-items: center;
           cursor: pointer;
+          .cart {
+            width: 32px;
+            height: 29px;
+            margin-right: 20px;
+          }
+          .menu {
+            width: 32px;
+            height: 29px;
+            margin-bottom: 50px;
+          }
         }
     }
-    .cart, .menu {
-      width: 33px;
-      height: 29px;
-    }
   }
-    
-
-
-
-
-
-
-
-
-
-
-
   }
 }

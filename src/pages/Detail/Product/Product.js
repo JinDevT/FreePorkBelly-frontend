@@ -1,26 +1,29 @@
 import React, { Component } from 'react';
-import { Link, withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import { API } from '../../../config.js';
 import './Product.scss';
 class Product extends Component {
     constructor(props) {
         super(props);
         this.state = {
             number: 1,
-            customerId: 3, // userid
-            productId: 3, // productId
             optionValue : "",
             optionId : "",
             selectOption : false,
             productDetail : [],
-            options : []
+            options : [],
         }
     }
 
     componentDidMount() {
-        fetch("http://10.58.4.74:8000/product/detail/1",  {
+        localStorage.setItem("access_token", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lcl9pZCI6OX0.FfOcmHfD1eYobVgH8qWmfnucZQwkjsOs0KxlAxNO6so")
+        const token = localStorage.getItem("access_token");
+      
+        fetch(`${API}/product/${this.props.match.params.id}`,  {
             method: "GET",
             headers: {
-                "Content-type": "application/json",
+                "Content-Type": "application/json",
+                "Authorization" : token
             },
         })
         .then(res => res.json())
@@ -32,25 +35,27 @@ class Product extends Component {
     }
 
     handleGoCart = () => {
-        const { customerId, productId , optionId, number } = this.state;
-        fetch("http://10.58.4.74:8000/order/cart" , {
+        localStorage.setItem("access_token", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lcl9pZCI6OX0.FfOcmHfD1eYobVgH8qWmfnucZQwkjsOs0KxlAxNO6so")
+        const token = localStorage.getItem("access_token");
+        const { productDetail , optionId, number } = this.state;
+        fetch(`${API}/order/cart` , {
             method: "POST",
             headers: {
-                "Content-type": "application/json"
+                "Content-Type": "application/json",
+                Authorization : token
             },
             body: JSON.stringify({
-                customer_id : customerId,
-                product_id : productId,
+                product_id : productDetail.product_id,
                 selected_option_id : optionId,
                 quantity : number 
             })
         })
-        .then(res => res.json())
         .then(res => {
             if(res.status === 200) {
-                this.props.history.push("/cart");
-            }else {
-                alert("로그인하고 이용주시길 바랍니다.")
+                this.props.history.push(`/cart`);
+                alert("성공")
+            }else if(res.status === 400) {
+                alert("로그인이 필요한 서비스 입니다.")
                 this.props.history.push("/login");
             }
         }).catch(err => console.log("err: ", err))
@@ -92,8 +97,6 @@ class Product extends Component {
         }, () => this.openOption())
     }
 
-
-
     render() {
         const { number, optionValue, selectOption, productDetail, options } = this.state;
         return (
@@ -112,15 +115,20 @@ class Product extends Component {
                             <div className="productNum">
                                 <span className="centerTit">수량</span>
                                 <div className="centerBtn">
-                                    <button type="button" className="decreaseBtn" onClick={this.handleDecrease}>-</button>
+                                    <button type="button" className="decreaseBtn" onClick={this.handleDecrease}>
+                                        <i className="minusBtnIcon"></i>
+                                    </button>
                                     <span className="number">{number}</span>
-                                    <button type="button" onClick={this.handleIncrease}>+</button>
+                                    <button type="button" className="plusBtn" onClick={this.handleIncrease}>
+                                        <i className="plusBtnIcon"></i>
+                                    </button>
                                 </div>
                             </div>
                             <div className="productNum productSelect">
                                 <label className="centerTit">옵션</label>
                                 <div className="centerBtn selectBox" onClick={this.openOption}>
                                     {optionValue}
+                                    <i className={"arrowIcon " + (selectOption ? "arrowTop" : "arrowBottom")}></i>
                                 </div>
                                 <div className={"seletItems " + (selectOption ? "selectActive" : "selectHide")}> 
                                     {

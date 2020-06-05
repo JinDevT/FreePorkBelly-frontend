@@ -6,6 +6,7 @@ import Footer from '../../../src/components/Footer/Footer';
 import TopButton from "../Main/TopButton/TopButton"
 import EventSlider from "./EventSlider/EventSlider"
 import NoticeSlider from "./NoticeSlider/NoticeSlider"
+import { API } from '../../../src/config'
 import "./Main.scss";
 
 class Main extends Component {
@@ -14,10 +15,15 @@ class Main extends Component {
     productList: []
 }
 
-
+scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
 
 componentDidMount(){
-    fetch("http://10.58.0.134:8000/product/main", {
+    fetch(`${API}/product/main`, {
         method: "GET", 
         headers: {
             "Content-Type": "application/json"
@@ -35,11 +41,13 @@ componentDidMount(){
     console.log("productList: ", this.state.productList)
 
 
-
+<<<<<<< HEAD
+  
+=======
+>>>>>>> master
     return (
       <div>
         <Header />
-        
         <main className="main">
           <div className="mainPagePork">
             <img
@@ -79,6 +87,7 @@ componentDidMount(){
                                         name={product.name}
                                         salesPrice={product.sales_price_comment}
                                         unitPrice={product.unit_price_comment}
+                                        productId={product.product_id}
                                     />
                                 );
                             })
@@ -86,7 +95,7 @@ componentDidMount(){
           </div>
           <div className="goShop">
             <Link className="goShopping" to="/list">
-              <button className="goShopping">쇼핑하러 가기</button>
+              <button className="goShopping" onClick={this.scrollToTop}>쇼핑하러 가기</button>
             </Link>
           </div>
         </main>

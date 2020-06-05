@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './CartList.scss'
 class CartList extends Component {
+
     render() {
         const { cartList, onIncrease, onDecrease, onRemove } = this.props;
-       
         return (
             <>
                 <li className="CartList">
@@ -34,6 +34,7 @@ class CartList extends Component {
                         <button type="button" onClick={() => onRemove(cartList)}>x</button>
                     </div>
                 </li>
+                
             </>
         );
     }

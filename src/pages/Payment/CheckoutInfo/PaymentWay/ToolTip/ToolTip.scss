@@ -1,0 +1,47 @@
+.ToolTip {
+    display: inline-block;
+    .toolTipinner {
+        .tooltip-body {
+            width: 350px;
+            background: #444;
+            position: absolute;
+            left: -4px;
+            bottom: -22px;
+            padding: 15px;
+            text-align: left;
+            color: #eee;
+            border-radius: 3px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
+            z-index: 9999;
+            transition: 1.5s all ease-in;
+            span {
+              font-size: 13px;
+              letter-spacing: 0.2px;
+            }
+        }
+        .tooltip-body::before {
+            position: absolute;
+            top:-10px;
+            left:25px;
+            border-left:10px solid transparent;
+            border-right:10px solid transparent; 
+            border-bottom:10px solid rgba(0,0,0,0.75);
+            content: "";
+        }
+        .none {
+            display: none;
+          }
+          
+          .show {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+    }
+  }
+  
+ 
+
+  
+
+  

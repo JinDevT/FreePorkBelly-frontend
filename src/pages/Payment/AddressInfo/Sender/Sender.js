@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Sender.scss';
-
 class Sender extends Component {
     render() {
         return (
@@ -15,7 +14,7 @@ class Sender extends Component {
                         </div>
                         <div className="payTableCell">
                             <div>
-                                <span>김진태</span>
+                                <span>정육각</span>
                             </div>
                         </div>
                     </div>
@@ -24,7 +23,7 @@ class Sender extends Component {
                             <span className="phone">전화번호</span>
                         </div>
                         <div className="payTableCell">
-                            <span>01000000000</span>
+                            <span>1800-0658</span>
                         </div>
                     </div>
                     <div className="payTableRow">
@@ -32,7 +31,7 @@ class Sender extends Component {
                             <span className="email">이메일</span>
                         </div>
                         <div className="payTableCell">
-                            <span>wlsxo@gmail.com</span>
+                            <span>help@yookgak.com</span>
                         </div>
                     </div>
                 </div>
