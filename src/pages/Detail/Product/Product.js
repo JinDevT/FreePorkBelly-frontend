@@ -16,9 +16,7 @@ class Product extends Component {
     }
 
     componentDidMount() {
-        localStorage.setItem("access_token", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lcl9pZCI6OX0.FfOcmHfD1eYobVgH8qWmfnucZQwkjsOs0KxlAxNO6so")
         const token = localStorage.getItem("access_token");
-      
         fetch(`${API}/product/${this.props.match.params.id}`,  {
             method: "GET",
             headers: {
@@ -35,7 +33,6 @@ class Product extends Component {
     }
 
     handleGoCart = () => {
-        localStorage.setItem("access_token", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lcl9pZCI6OX0.FfOcmHfD1eYobVgH8qWmfnucZQwkjsOs0KxlAxNO6so")
         const token = localStorage.getItem("access_token");
         const { productDetail , optionId, number } = this.state;
         fetch(`${API}/order/cart` , {
@@ -53,7 +50,6 @@ class Product extends Component {
         .then(res => {
             if(res.status === 200) {
                 this.props.history.push(`/cart`);
-                alert("성공")
             }else if(res.status === 400) {
                 alert("로그인이 필요한 서비스 입니다.")
                 this.props.history.push("/login");

@@ -16,7 +16,6 @@ class Recipient extends Component {
     }
 
     componentDidMount() {
-            localStorage.setItem("access_token", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lcl9pZCI6OX0.FfOcmHfD1eYobVgH8qWmfnucZQwkjsOs0KxlAxNO6so")
             const token = localStorage.getItem("access_token");
             fetch(`${API}/order/address`, {
                 method: "GET",

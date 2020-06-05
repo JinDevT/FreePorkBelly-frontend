@@ -3,15 +3,9 @@ import './OrderHistory.scss';
 import OrderList from './OrderList/OrderList';
 
 class OrderHistory extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            shippngFee : 3500
-        }
-    }
+   
     render() {
         const { cartList, totalPrice } = this.props;
-        const { shippngFee } = this.state;
         return (
             <div className="section OrderHistory">
                 <h2>주문내역</h2>
@@ -43,7 +37,7 @@ class OrderHistory extends Component {
                             <i className="plusIcon"></i>
                             <div className="priceInfoWrap">
                                 <p>배송비</p>
-                                <p>{shippngFee}원</p>
+                                <p>0원</p>
                             </div>
                             <i className="minusIcon"></i>
                             <div className="priceInfoWrap">
@@ -53,7 +47,7 @@ class OrderHistory extends Component {
                             <i className="equalIcon"></i>
                             <div className="priceInfoWrap">
                                 <p>최종 결제예정금액</p>
-                                <p>{parseInt(totalPrice).toLocaleString() * shippngFee}원</p>
+                                <p>{parseInt(totalPrice).toLocaleString()}원</p>
                             </div>
                         </div>
                     </div>
