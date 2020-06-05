@@ -1,10 +1,35 @@
 import React, { Component } from 'react';
+import { API } from '../../config';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import './Mypagge.scss';
 
 class Mypagge extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            mypage : []
+        }
+    }
+
+    componentDidMount() {
+        const token = localStorage.getItem("access_token");
+        fetch(`${API}/order/payment` , {
+            method: "GET",
+            headers: {
+                "Content-type": "application/json",
+                "Authorization" : token
+            },
+        })
+        .then(res => res.json())
+        .then(res => this.setState({
+            mypage: res.data[0]
+        }))
+    
+    }
     render() {
+        const { mypage } = this.state;
+       
         return (
             <div className="Mypage">
                 <Header />
@@ -53,22 +78,24 @@ class Mypagge extends Component {
                                             <span>수량</span>
                                         </div>
                                     </div>
-                                    <div className="mypageRow">
-                                        <div className="mypageCell">
-                                            <span>상품명</span>
-                                        </div>
-                                        <div className="mypageCell">
-                                            <span>1</span>
-                                        </div>
-                                    </div>
-                                    <div className="mypageRow">
-                                        <div className="mypageCell">
-                                            <span>총합</span>
-                                        </div>
-                                        <div className="mypageCell">
-                                            <spn>가격</spn>
-                                        </div>
-                                    </div>
+                                    {
+                                            mypage.order_item && mypage.order_item.map((list,index) => {
+                                            
+                                            return (
+                                                <>
+                                                    <div className="mypageRow">
+                                                        <div className="mypageCell">
+                                                            <span>{list.item_name}</span>
+                                                        </div>
+                                                        <div className="mypageCell">
+                                                            <span>{list.quantity}</span>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                </>
+                                            );
+                                        })
+                                    }
                                 </div> 
                             </div>
                         </div>
@@ -106,7 +133,9 @@ class Mypagge extends Component {
                                             상품합계
                                         </div>
                                         <div>
-                                            합계
+                                            {mypage ?
+                                                parseInt(mypage.total_amount).toLocaleString() : null} 원
+                                                
                                         </div>
                                     </div>
                                     <div className="paymentWay lastPrice">
@@ -114,7 +143,7 @@ class Mypagge extends Component {
                                             결제 총액
                                         </div>
                                         <div>
-                                            가격
+                                            {parseInt(mypage.total_amount).toLocaleString()} 원
                                         </div>
                                     </div>
                                 </div>
