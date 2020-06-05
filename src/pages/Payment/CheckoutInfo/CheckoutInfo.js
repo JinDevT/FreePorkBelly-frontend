@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { API } from '../../../config';
 import PaymentWay from './PaymentWay/PaymentWay';
 import OrderHistory from './OrderHistory/OrderHistory';
 import OrderInfo from './OrderInfo/OrderInfo';
@@ -9,18 +11,34 @@ class CheckoutInfo extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            showTooltip : false,
+            cartList: [],
+            addPrice: 0,
         }
     }
-
-    showTooltip = () => {
-        const { showTooltip } = this.state;
-        this.setState({
-            showTooltip: !showTooltip
+    
+    componentDidMount() {
+        const token = localStorage.getItem("access_token");
+        console.log(token)
+        fetch(`${API}/order/cart` , {
+            method: "GET",
+            headers: {
+                "Content-type": "application/json",
+                "Authorization" : token
+            },
         })
+        .then(res => res.json())
+        .then(res => this.setState({
+            cartList : res.cart_items,
+            addPrice : res.cart[0]["total_amount"]
+        }, () => console.log(this.state.cartList)))
+    }
+
+    handleGoMain = () => {
+        this.props.history.push("/index")
     }
 
     render() {
+        const { cartList, addPrice } = this.state;
         return (
             <div className="CheckoutInfo">
                 <div className="stageInfo">
@@ -40,12 +58,12 @@ class CheckoutInfo extends Component {
                 </div>
                 <div className="paymentUser">
                     <PaymentWay />
-                    <OrderHistory />
+                    <OrderHistory cartList={cartList} totalPrice={addPrice}/>
                     <OrderInfo />
                     <CheckListInfo />
                    <div className="stageButton">
                         <OrderButton text="이전단계" clazzName="prevBtn" stageChange={this.props.stageChange}/>
-                        <OrderButton text="주문확정" clazzName="nextBtn" />
+                        <OrderButton text="주문확정" clazzName="nextBtn" stageChange={this.handleGoMain}/>
                     </div>
                 </div>
             </div>
@@ -54,4 +72,4 @@ class CheckoutInfo extends Component {
     }
 }
 
-export default CheckoutInfo;
+export default withRouter(CheckoutInfo);

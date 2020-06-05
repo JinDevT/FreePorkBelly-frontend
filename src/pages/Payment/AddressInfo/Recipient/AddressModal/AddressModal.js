@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import DaumPostCode from 'react-daum-postcode';
 import { API } from '../../../../../../src/config.js'
 import './AddressModal.scss'
-
 class AddressModal extends Component {
     constructor(props) {
         super(props);
@@ -17,7 +16,6 @@ class AddressModal extends Component {
             register: [],
         }
     }
-
 
     buttonChange = () => {
         const { name, phone, address, fullAddress } = this.state;
@@ -42,13 +40,14 @@ class AddressModal extends Component {
 
     handleRegister = () => {
         const { name, phone, address, fullAddress, register } = this.state;
-        let userAddress = fullAddress + address
+        const userAddress = fullAddress + address
         const newRegiste = register.concat({ name, phone, userAddress});
+        const token = localStorage.getItem("access_token");
         fetch(`${API}/order/address`, {
             method: "POST",
             headers : {
                 "Content-type" : "application/json",
-                "Authorization" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lcl9pZCI6MX0.ibPkQgVjNLXv3uLogTIOdjK9A87qVm62YGyhDUJIKm8"
+                "Authorization" : token
             },
             body : JSON.stringify({
                 name: name,
@@ -65,7 +64,10 @@ class AddressModal extends Component {
                     zoneCode: "",
                     fullAddress: "",
                     address: "",
-                }, () => this.props.isModalClose())
+                }, () => {
+                    this.props.isModalClose();
+                    window.location.reload();
+                })
             }
         })
        
@@ -95,7 +97,6 @@ class AddressModal extends Component {
     render() {
         const { isModalShow, isModalClose } = this.props;
         const { name, phone, address, isDaumPost, fullAddress, zoneCode, isRegister } = this.state;
-
         // DaumPostCode style
         const width = 595;
         const height = 450;

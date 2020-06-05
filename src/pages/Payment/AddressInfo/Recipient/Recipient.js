@@ -15,21 +15,22 @@ class Recipient extends Component {
         }
     }
 
-    componentDidUpdate() {
-        fetch(`${API}/order/address`, {
-            method: "GET",
-            headers : {
-                "Content-type" : "application/json",
-                "Authorization" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lcl9pZCI6MX0.ibPkQgVjNLXv3uLogTIOdjK9A87qVm62YGyhDUJIKm8"
-            },
-        })
-        .then(res => res.json())
-        .then(res => this.setState({
-            name: res.data[0].name,
-            phone: res.data[0].phone,
-            address: res.data[0].address,
-        })).catch(err => console.log("err: ", err));
-    }
+    componentDidMount() {
+            const token = localStorage.getItem("access_token");
+            fetch(`${API}/order/address`, {
+                method: "GET",
+                headers : {
+                    "Content-type" : "application/json",
+                    "Authorization" : token
+                },
+            })
+            .then(res => res.json())
+            .then(res => this.setState({
+                name: res.data[0].name,
+                phone: res.data[0].phone,
+                address: res.data[0].address,
+            })).catch(err => console.log("err: ", err));
+        }
 
     // open modal
     openModal = () => {
