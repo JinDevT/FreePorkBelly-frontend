@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import DaumPostCode from 'react-daum-postcode';
 import { API } from '../../../../../../src/config.js'
 import './AddressModal.scss'
-
 class AddressModal extends Component {
     constructor(props) {
         super(props);
@@ -43,7 +42,6 @@ class AddressModal extends Component {
         const { name, phone, address, fullAddress, register } = this.state;
         const userAddress = fullAddress + address
         const newRegiste = register.concat({ name, phone, userAddress});
-        localStorage.setItem("access_token", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lcl9pZCI6OX0.FfOcmHfD1eYobVgH8qWmfnucZQwkjsOs0KxlAxNO6so")
         const token = localStorage.getItem("access_token");
         fetch(`${API}/order/address`, {
             method: "POST",
@@ -66,7 +64,10 @@ class AddressModal extends Component {
                     zoneCode: "",
                     fullAddress: "",
                     address: "",
-                }, () => this.props.isModalClose())
+                }, () => {
+                    this.props.isModalClose();
+                    window.location.reload();
+                })
             }
         })
        
