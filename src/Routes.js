@@ -7,7 +7,7 @@ import List from './pages/List/List';
 import Detail from './pages/Detail/Detail';
 import Cart from './pages/Cart/Cart';
 import Payment from './pages/Payment/Payment';
-import Review from './pages/Review/Review';
+import Mypagge from './pages/Mypagge/Mypagge';
 
 
 
@@ -20,10 +20,10 @@ class Routes extends Component {
               <Route exact path="/login" component={Login}/>
               <Route exact path="/register" component={Register}/>
               <Route exact path="/list" component={List}/>
-              <Route exact path="/detail" component={Detail}/>
+              <Route exact path="/detail/:id" component={Detail}/> {/* id 추가 - 6.4 진태*/}
               <Route exact path="/cart" component={Cart}/>
               <Route exact path="/payment" component={Payment}/>
-              <Route exact path="/review" component={Review}/>
+              <Route exact path="/mypage" component={Mypagge}/>
           </Switch>
       </Router>
     );

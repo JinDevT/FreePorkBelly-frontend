@@ -6,42 +6,48 @@
   }
 }
 .event {
+  width: 1180px;
   display: flex;
-  justify-content: space-evenly;
-  margin-top: 50px;
-  .animatedEvent {
-  }
+  justify-content: space-between;
+  margin: 50px auto;
 }
 .notice {
   display: flex;
-  width: 90%;
-  height: 58px;
-  margin: 30px auto;
   align-items: center;
+  width: 1180px;
+  height: 58px;
+  margin: 60px auto;
   border: 1px solid #979797;
   .noticeHead {
-    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100px;
+    height: 58px;
     text-align: center;
     font-weight: 700;
     font-size: $font18;
-    margin-left: -15px;
   }
-  .noticeHead::after {
-    content: "|";
-    font-weight: 100;
-    margin-left: 20px;
+  .noticeFirst {
+    width: 1px;
+    height: 20px;
+    background-color: #737373;
+    margin-left: 10px
   }
+  // .noticeHead::after { //대훈님 코드
+  //   content: "|";
+  //   font-weight: 700;
+  //   margin-left: 100px;
+  // }
   .noticeMiddle {
-    flex-grow: 8;
+    width: 980px;
     font-size: $font18;
-    margin-left: -25px;
   }
   .noticeLast {
-    flex-grow: 1;
+    width: 80px;
     text-align: center;
     font-weight: 700;
     font-size: $font18;
-    margin-left: 50px;
   }
   .noticeLast::after {
     content: ">";
@@ -57,7 +63,25 @@
 }
 .prodcutImagesContainer {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   margin: 0px auto;
-  width: 93%;
+  width: 1380px;
+}
+.goShop {
+  margin-top: 80px;
+  .goShopping {
+    width: 380px;
+    height: 90px;
+    background-color:#dd2137;
+    font-size: $font24;
+    font-weight: 700;
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+  }
 }

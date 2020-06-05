@@ -1,0 +1,15 @@
+@import "../../../../styles/common.scss";
+
+.OrderInfo {
+    .orderInfoInner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+        p {
+            font-size: $font18;
+            font-weight: 700;
+            color: #4a90e2;
+        }
+    }
+}

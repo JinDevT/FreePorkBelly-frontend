@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { API } from '../../../config.js';
 import './Explicate.scss';
 class Explicate extends Component {
     constructor(props) {
@@ -7,8 +9,9 @@ class Explicate extends Component {
             explicate : []
         }
     }
+    
     componentDidMount() {
-        fetch("http://10.58.4.231:8000/product/detail/1",  {
+        fetch(`${API}/product/${this.props.match.params.id}`,  {
             method: "GET",
             headers: {
                 "Content-type": "application/json",
@@ -17,16 +20,16 @@ class Explicate extends Component {
         .then(res => res.json())
         .then(res => this.setState({
             explicate :  res.product_detail
-        }))
+        })).catch(err => console.log("err: ", err));
     }
 
     render() {
         const { explicate } = this.state
-        
         let firstMon;
         let secondMon;
         let firstDay;
         let secondDay;
+        
        if(explicate.produced_date) {
             firstMon = explicate.produced_date.substr(5,1);
             secondMon = explicate.produced_date.substr(6,1);
@@ -65,4 +68,4 @@ class Explicate extends Component {
     }
 }
 
-export default Explicate;
+export default withRouter(Explicate);

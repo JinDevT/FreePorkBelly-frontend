@@ -1,0 +1,54 @@
+@import "../../../styles/common.scss";
+.bestProductImages {
+  display: flex;
+  flex-direction: column;
+  margin: 60px 0 0 15px;
+  .productImageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 380px;
+    height: 420px;
+    background-color: rgb(249, 247, 248);
+    cursor: pointer;
+    img {
+      width: 310px;
+    }
+  }
+  .productInfo {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    img {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      box-shadow: 0px 0px 10px 0.5px #e1dedf;
+      margin-top: -40px;
+      margin-left: 295px;
+      background-color: white;
+      position: absolute;
+      cursor: pointer;
+    }
+    .productContainer {
+      display: flex;
+      flex-direction: column;
+      margin-top: 30px;
+      .productName {
+        font-size: $font18;
+        font-weight: 700;
+      }
+      .productPrice {
+        font-size: $font18;
+        line-height: 23px;
+        color: #9b9b9b;
+        padding-top: 5px;
+      }
+      .productPricePerGram {
+        font-size: $font14;
+        line-height: 23px;
+        color: #9b9b9b;
+      }
+    }
+  }
+}

@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Header from "../../components/Header/Header";
+import Footer from '../../../src/components/Footer/Footer';
+import { API } from '../../../src/config';
 import './Login.scss';
 
 class Login extends Component {
-    
+
     state = {
         loginById: "",
         loginByPw: "",
         btState: true,
     };
+
+    handleChange = () => {
+        this.setState({
+            stage: false,
+        });
+    }
 
     typeId = (e) => {
         this.setState({
@@ -25,8 +34,7 @@ class Login extends Component {
     clickEvent = () => {
         console.log(this.state.loginById);
         console.log(this.state.loginByPw);
-
-        fetch("http://10.58.0.24:8000/customer/signin", {
+        fetch(`${API}/customer/signin`, {
             method: "POST",
             body: JSON.stringify({
                 'email' : this.state.loginById,
@@ -37,8 +45,9 @@ class Login extends Component {
         .then((response) => {
             if (response.token) {
                 console.log(response);
-                localStorage.setItem("wtw-token", response.token);
+                localStorage.setItem("access_token", response.token);
                 this.props.history.push("/index");
+                
             } else if (!response.token) {
                 alert("로그인 오류");
             }
@@ -48,6 +57,7 @@ class Login extends Component {
     render() {
         return (
             <div className="Login">
+              <Header />
                 <div className="loginText">로그인
                 </div>
                 <div className="loginContainer">
@@ -88,14 +98,8 @@ class Login extends Component {
                         <img className="kakao" src="https://www.jeongyookgak.com/assets/login/kakao.svg"></img>
                         <div>카카오톡 로그인</div>
                     </div>
-                </div>
-            
-            
-            
-            
-            
-            
-            
+                </div>           
+              <Footer />
             </div>
         );
     }

@@ -1,0 +1,25 @@
+@import "../../../styles/common.scss";
+
+.LoginMypage {
+    width: 180px;
+    color: white;
+    font-size: $font14;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;   
+    .verticalLine {
+        width: 1px;
+        height: 20px;
+        background-color: #737373;
+        margin-left: 10px;
+        margin-right: 15px;
+        cursor: none;
+    }
+  }
+
+
+
+
+
+    
