@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom"
 import "./LoginMypage.scss";
 
 class LoginMypage extends Component {
@@ -10,7 +11,9 @@ class LoginMypage extends Component {
             <div className="verticalLine" >
             </div>
             <div className="loginLink"> 
+            <Link className="loginLink" to="/mypage">
              마이페이지
+             </Link>
             </div>
         </div>
         );
