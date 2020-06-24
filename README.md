@@ -29,12 +29,13 @@
 * 로그아웃 버튼 클릭 시, access_token 삭제 구현
 
 ### Main
+* Back-End와 API 통신(GET)하여 소량의 상품 목록 가져오기
 * slick 라이브러리를 사용하여 슬라이더 구현
 * scroll 시 새로운 header 생성 및 fixed 구현
 * Top button 구현하여 클릭 시, 상단으로 이동하게 구현
 
 ### Product List
-* Back-End와 API 통신(GET)하여 상품목록 가져오기
+* Back-End와 API 통신(GET)하여 상품 목록 가져오기
 * Query parameters를 이용하여 카테고리에 해당하는 상품 목록 가져오기
 * 라우트 경로에 pruduct_id 값을 넣어 해당 상품 디테일 페이지로 이동할 수 있게 동적 라우팅 구현
 
