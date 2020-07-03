@@ -6,6 +6,7 @@
 * 프로젝트 기간은 단 2주! (2020.05.25 ~ 2020.06.05)
 
 ## Demo
+- https://www.youtube.com/watch?v=iL7fGn7tmVo&t=14s
 
 ## Skills
 * Front-End: React, Router, Javascript, Sass
