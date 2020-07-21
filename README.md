@@ -9,7 +9,7 @@
 - https://www.youtube.com/watch?v=iL7fGn7tmVo
 
 ## Skills
-* Front-End: React, Router, Javascript, Sass
+* Front-End: React, Router, Class component, Javascript, Sass
 * Back-End: Django, MySQL
 * Tools: Git, AWS
 
