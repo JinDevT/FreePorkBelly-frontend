@@ -40,25 +40,25 @@
 * Query parameters를 이용하여 카테고리에 해당하는 상품 목록 가져오기
 * 라우트 경로에 pruduct_id 값을 넣어 해당 상품 디테일 페이지로 이동할 수 있게 동적 라우팅 구현
 
-### Product Detail
+### Product Detail (맡은 업무 : 100% 구현 완료)
 * Back-End와 API 통신(GET)하여 해당 상품에 대한 정보 가져오기
 * Back-End와 API 통신(POST)하여 해당 상품 수량 및 옵션 구현
 * Back-End와 API 통신(GET)하여 해당 상품에 대한 리뷰목록 가져오기
 * Tab Button 기능을 구현하여 컴포넌트를 동적으로 보여주기
 * 해당 리뷰를 클릭 시, 모달 기능 구현
 
-### Cart
+### Cart (맡은 업무 : 100% 구현 완료)
 * Back-End와 API 통신(GET)하여 해당 유저의 장바구니 리스트 가져오기
 * Back-End와 API 통신(DELETE)하여 해당 상품 삭제 기능 구현
 * 수량에 따른 해당 상품의 가격과 전체 상품의 총 가격 변경 기능 구현
 
-### Order
+### Order (맡은 업무 : 100% 구현 완료)
 * Back-End와 API 통신(GET)하여 상품 주문 목록 가져오기
 * 이전 단계, 다음 단계 버튼 클릭 시, 해당 컴포넌트 동적으로 보여주기
 * 결제 방법 중, 무통장 입금 체크할 때, Tooltip 기능 구현
 * 주소 선택 버튼 클릭 시, 모달 기능 구현
 * daum-postcode 라이브러리를 활용하여 주소 검색 기능 구현
 
-### Mypage
+### Mypage (맡은 업무 : 100% 구현 완료)
 * Back-End와 API 통신(GET)하여 주문 내역 가져오기
 
